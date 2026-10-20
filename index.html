@@ -3,11 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Philip again.</title>
+  <title>Philip again...</title>
   <meta name="description" content="Philip Müller builds tools for an AI-native world, and writes about what he learns along the way.">
   <!-- Draft: keeps search engines away until launch. Remove this line to go public. -->
   <meta name="robots" content="noindex">
-  <meta property="og:title" content="Philip again.">
+  <meta property="og:title" content="Philip again...">
   <meta property="og:description" content="Tools for an AI-native world, and notes on what I learn along the way.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#F7F1EA" media="(prefers-color-scheme: light)">
@@ -32,8 +32,18 @@
       <span class="mark triangle" aria-hidden="true"></span>
       <span>philipagain.com</span>
     </div>
-    <h1>Philip <span class="again"><span class="word">again.</span><svg class="spark s1" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"></path></svg><svg class="spark s2" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"></path></svg><svg class="spark s3" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 0 L14.5 9.5 L24 12 L14.5 14.5 L12 24 L9.5 14.5 L0 12 L9.5 9.5 Z"></path></svg></span></h1>
-    <p class="lead">I build tools for an AI-native world, and write about what I learn along the way.</p>
+    <h1>
+      <span class="name">Philip</span>
+      <span class="again-lane">
+        <button type="button" class="again-btn" aria-label="again" aria-pressed="false">
+          <span class="again-word again-static" aria-hidden="true">again...</span>
+          <span class="again-word again-flow" aria-hidden="true" style="animation-delay: -2.7s;">again...</span>
+          <span class="again-word again-flow" aria-hidden="true" style="animation-delay: 0.6s;">again...</span>
+          <span class="again-word again-flow" aria-hidden="true" style="animation-delay: 3.9s;">again...</span>
+        </button>
+      </span>
+    </h1>
+    <p class="lead">Here we go again... New challenge, new context, new industry, new flatmates. Already rich in experience, still broke in economic units. If you can relate to the existential depth and joy of the 21st century's non-linear career path, tag along. I am uncertain of the future in all aspects but one: We won't get bored any time soon.</p>
 
     <form class="signup" novalidate data-signup>
       <div class="row">
@@ -53,14 +63,113 @@
 
 <main id="main">
 
+  <!-- ===== SO FAR ===== -->
+  <!-- Photos: put them in assets/img/ and replace a <div class="photo placeholder-box"> with
+       <img class="photo" src="assets/img/NAME.jpg" alt="..."> -->
+  <section class="section path" id="so-far" aria-labelledby="so-far-title">
+    <div class="wrap path-head">
+      <div class="stack-tight">
+        <h2 id="so-far-title">So far</h2>
+        <p class="muted path-intro">Every header below is a time I started again.</p>
+      </div>
+      <button type="button" class="btn btn-quiet path-pause" aria-pressed="false" hidden>Pause</button>
+    </div>
+    <div class="path-scroll" role="region" aria-label="Career path, from left to right" tabindex="0">
+      <div class="path-track">
+        <ol class="path-group">
+          <li class="step">
+            <span class="rail" aria-hidden="true"><span class="mark circle"></span></span>
+            <div class="photo placeholder-box">[Photo: Industrial Engineering]</div>
+            <span class="place">Karlsruhe · Herford · Changzhou · Berlin</span>
+            <h3>Industrial Engineering</h3>
+            <ul>
+              <li>BSc Industrial Engineering at KIT.</li>
+              <li>Shopfloor in Herford: metalworking, welding basics, assembling and repairing presses.</li>
+              <li>Lean production in Changzhou: section boards for seven workshop sections.</li>
+              <li>Growth strategy and a three-year target P&amp;L for a concrete goods maker with sites in Germany, France and Spain.</li>
+              <li>Cloud proposals for manufacturing clients and partners at SAP.</li>
+            </ul>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><span class="mark square"></span></span>
+            <div class="photo placeholder-box">[Photo: Prediction]</div>
+            <span class="place">Syntax · TU Delft</span>
+            <h3>Prediction</h3>
+            <ul>
+              <li>Built the backend of an app that reads machine nameplates with computer vision.</li>
+              <li>Weighed off-the-shelf AI document tools against building our own.</li>
+              <li>Taught data science, machine learning and agent-based modelling in Python.</li>
+            </ul>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><span class="mark triangle"></span></span>
+            <div class="photo placeholder-box">[Photo: Public Policy]</div>
+            <span class="place">Delft</span>
+            <h3>Public Policy</h3>
+            <ul>
+              <li>MSc Engineering &amp; Policy Analysis at TU Delft.</li>
+              <li>Thesis: an agent-based simulation that stress-tests Bangladesh's roads for disaster readiness.</li>
+            </ul>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><span class="mark circle"></span></span>
+            <div class="photo placeholder-box">[Photo: Economics]</div>
+            <span class="place">Rotterdam</span>
+            <h3>Economics</h3>
+            <ul>
+              <li>MSc Economics &amp; Business at Erasmus University Rotterdam.</li>
+            </ul>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><span class="mark square"></span></span>
+            <div class="photo placeholder-box">[Photo: Private Equity]</div>
+            <span class="place">Rothschild &amp; Co</span>
+            <h3>Private Equity</h3>
+            <ul>
+              <li>Due diligence on private market funds.</li>
+              <li>Strategic asset allocation research across public, private and real assets.</li>
+            </ul>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><span class="mark triangle"></span></span>
+            <div class="photo placeholder-box">[Photo: Flood Insurance]</div>
+            <span class="place">ETH Zürich</span>
+            <h3>Flood Insurance</h3>
+            <ul>
+              <li>Visiting researcher in the Weather and Climate Risks Group, on an IDEA League research grant.</li>
+              <li>How insurance take-up shifts after a price and climate shock to the US National Flood Insurance Program.</li>
+            </ul>
+          </li>
+          <li class="step">
+            <span class="rail" aria-hidden="true"><span class="mark circle"></span></span>
+            <div class="photo placeholder-box">[Photo: AI Policy]</div>
+            <span class="place">Opendata.ch · Zürich</span>
+            <h3>AI Policy</h3>
+            <ul>
+              <li>Operational lead of the fifth funding round of the Prototype Fund.</li>
+              <li>Connected software teams with grant funding and AI-compliance researchers, to launch under EU and Swiss AI law.</li>
+              <li>110 teams vetted, 5 selected, CHF 1M in funding managed.</li>
+            </ul>
+          </li>
+          <li class="step next">
+            <span class="rail" aria-hidden="true"><span class="mark open"></span></span>
+            <div class="photo next-box"><span>???</span></div>
+            <h3>What's next</h3>
+            <p>It starts right below.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
   <!-- ===== NOW ===== -->
-  <section class="section" id="now" aria-labelledby="now-title">
+  <section class="section now" id="now" aria-labelledby="now-title">
     <div class="wrap split">
       <h2 id="now-title">Now</h2>
       <ul class="now-list">
-        <li><span class="mark square" aria-hidden="true" style="background: var(--accent); width: 12px; height: 12px;"></span><span class="placeholder">[What you're working on now: line 1]</span></li>
-        <li><span class="mark circle" aria-hidden="true" style="background: var(--sky); width: 12px; height: 12px;"></span><span class="placeholder">[What you're working on now: line 2]</span></li>
-        <li><span class="mark triangle" aria-hidden="true"></span><span class="placeholder">[What you're working on now: line 3]</span></li>
+        <li><span class="mark square" aria-hidden="true" style="background: var(--accent); width: 12px; height: 12px;"></span><span>Starting this journey right here...</span></li>
+        <li><span class="mark circle" aria-hidden="true" style="background: var(--sky); width: 12px; height: 12px;"></span><span>More flood insurance modeling</span></li>
+        <li><span class="mark triangle" aria-hidden="true"></span><span>Should we launch a startup?</span></li>
       </ul>
     </div>
   </section>
@@ -101,16 +210,14 @@
   </section>
 
   <!-- ===== ABOUT ===== -->
-  <!-- When the portrait is ready: put it in assets/img/portrait.jpg and replace
-       the text inside <div class="frame"> with <img src="assets/img/portrait.jpg" alt="Philip Müller"> -->
   <section class="section" id="about" aria-labelledby="about-title">
     <div class="wrap about">
-      <div class="portrait">
-        <div class="frame">[Your portrait]</div>
-      </div>
+      <img class="portrait" src="assets/img/portrait.jpg" alt="Philip Müller" width="960" height="1200" loading="lazy">
       <div class="stack">
         <h2 id="about-title">About</h2>
-        <p class="placeholder">[Your story: the non-linear path so far, and why "again".]</p>
+        <p>I studied industrial engineering and started on the shopfloor, learning to weld and repair presses. Since then I have started again more than once: lean production in China, enterprise software at SAP, policy analysis in Delft, economics in Rotterdam, private markets at Rothschild, flood insurance at ETH Zürich, and a funding programme for AI software at Opendata.ch.</p>
+        <p>It looks like a zigzag. To me it is one question asked from different sides: what does it take to build something new and make it work in the real world, technically, financially and under the rules that govern it?</p>
+        <p>Philip, again, because every step started from zero.</p>
         <p class="small placeholder">[One line for work enquiries, e.g. how you help and how to reach you.]</p>
       </div>
     </div>
