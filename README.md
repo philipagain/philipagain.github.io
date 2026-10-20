@@ -46,3 +46,9 @@ pencil icon, edit, and commit.
 ## Custom domain
 
 Once DNS is ready: add a `CNAME` file containing `philipagain.com`, set the custom domain in the repository's Pages settings, and enforce HTTPS.
+
+## After changing CSS or JavaScript
+
+`index.html` loads `site.css?v=…` and `site.js?v=…`. Change the `v=` value
+(for example to the current date and time) whenever you edit those files, so
+browsers fetch the new version instead of a cached old one.
