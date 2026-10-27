@@ -45,20 +45,19 @@ Photo: [Photo: Industrial Engineering]
 
 - BSc Industrial Engineering at KIT.
 - Shopfloor at Wemhoener Surface Technologies.
-- Lean production in Changzhou
+- Lean production in Changzhou.
 - Growth strategy and target P&L for a concrete producer with sites in Germany, France and Spain.
-- Cloud proposals for manufacturing clients and partners at SAP.
+- Taught econometrics and prediction in R.
 
-## Prediction 
-Place: KIT · Syntax · TU Delft
+## Enterprise Software 
+Place: SAP · Syntax
 Photo: [Photo: Prediction]
 
-- Built the backend of an app that reads machine nameplates with computer vision.
-- Taught econometrics and prediction in R.
-- Taught data science, machine learning and agent-based modeling in Python.
-- BSc Thesis: Exploring statistical methods to predict p-hacking and fabricated findings in scientific publications
-
-## Public Policy and Systems Thinking
+- Built the backend of an AI solution that reads machine nameplates through a phone app.
+- Ran a built-v-buy cost-benefit analysis against of the shelf OCR solutions
+- Wrote business proposals for MES cloud solutions
+  
+## Systems Engineering
 Place: Delft
 Photo: [Photo: Public Policy]
 
@@ -66,13 +65,17 @@ Photo: [Photo: Public Policy]
 - Built an agent-based simulation to stress-test the highway network in Bangladesh against natural disasters
 - Developed a System Dynamics model to study the interplay between gentrification and housing supply in Amsterdam
 - Developed a Simulation approach to draft climate and economic policy against deep uncertainties in the Ijssel river
+- Taught data science, machine learning, computer simulation in python 
  
 ## Economics
 Place: Rotterdam
 Photo: [Photo: Economics]
 
 - MSc Economics & Business at Erasmus University Rotterdam.
-
+- Game theory
+- Causal identification
+- Climate adaptation and development economics 
+ 
 ## Private Equity
 Place: Rothschild & Co
 Photo: [Photo: Private Equity]
