@@ -15,7 +15,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/comfortaa-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=202610202157">
+  <link rel="stylesheet" href="assets/css/site.css?v=202610271200">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -45,19 +45,11 @@
     </h1>
     <p class="lead">Here we go again... New challenge, new context, new industry, new flatmates. Already rich in experience, still broke in economic units. If you can relate to the existential depth and joy of the 21st century's non-linear career path, tag along. I am uncertain of the future in all aspects but one: We won't get bored any time soon.</p>
 
-    <form class="signup" novalidate data-signup>
-      <div class="row">
-        <div class="field">
-          <label for="email-top">Your email</label>
-          <input id="email-top" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-top-help email-top-msg">
-        </div>
-        <button class="btn" type="submit">Follow along</button>
-      </div>
-      <p class="msg" id="email-top-msg" role="status" aria-live="polite"></p>
-      <p class="help" id="email-top-help">Occasional notes on what I build and learn. No spam, leave anytime.</p>
-    </form>
-
-    <a class="ulink" href="#build" style="align-self: flex-start; font-size: 20px;">See what I'm building ↓</a>
+    <div class="cta">
+      <a class="btn" href="mailto:hello@philipagain.com">Get in touch</a>
+      <a class="ulink" href="#build">See what I'm building ↓</a>
+    </div>
+    <p class="cta-note">Hiring, building something, or starting again yourself? Write to me.</p>
   </div>
 </header>
 
@@ -218,26 +210,20 @@
         <p>I studied industrial engineering and started on the shopfloor, learning to weld and repair presses. Since then I have started again more than once: lean production in China, enterprise software at SAP, policy analysis in Delft, economics in Rotterdam, private markets at Rothschild, flood insurance at ETH Zürich, and a funding programme for AI software at Opendata.ch.</p>
         <p>It looks like a zigzag. To me it is one question asked from different sides: what does it take to build something new and make it work in the real world, technically, financially and under the rules that govern it?</p>
         <p>Philip, again, because every step started from zero.</p>
-        <p class="small placeholder">[One line for work enquiries, e.g. how you help and how to reach you.]</p>
+        <p>Looking for my next start: go-to-market, operations, or a co-founder seat. Wherever systems need designing, running and scaling, write to <a class="ulink" href="mailto:hello@philipagain.com">hello@philipagain.com</a>.</p>
       </div>
     </div>
   </section>
 
-  <!-- ===== FOLLOW ALONG ===== -->
-  <section class="section on-deep" id="follow" aria-labelledby="follow-title">
+  <!-- ===== GET IN TOUCH ===== -->
+  <section class="section on-deep" id="contact" aria-labelledby="contact-title">
     <div class="wrap stack">
-      <h2 id="follow-title">Follow along</h2>
-      <p style="max-width: 620px;">New tools and what I learn building them, straight to your inbox.</p>
-      <form class="signup" novalidate data-signup>
-        <div class="row">
-          <div class="field">
-            <label for="email-bottom">Your email</label>
-            <input id="email-bottom" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-bottom-msg">
-          </div>
-          <button class="btn" type="submit">Follow along</button>
-        </div>
-        <p class="msg" id="email-bottom-msg" role="status" aria-live="polite"></p>
-      </form>
+      <h2 id="contact-title">Get in touch</h2>
+      <p style="max-width: 620px;">Hiring, building something new, or want to swap notes on starting again? I read every email.</p>
+      <div class="cta">
+        <a class="btn" href="mailto:hello@philipagain.com">Get in touch</a>
+        <a class="ulink" href="mailto:hello@philipagain.com">hello@philipagain.com</a>
+      </div>
     </div>
   </section>
 
@@ -253,6 +239,6 @@
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=202610202157" defer></script>
+<script src="assets/js/site.js?v=202610271200" defer></script>
 </body>
 </html>

@@ -107,19 +107,12 @@ p { margin: 0; }
 .ulink:hover { background-size: 100% 2px; }
 
 /* Signup form */
-.signup { display: flex; flex-direction: column; gap: 8px; max-width: 620px; }
-.signup .row { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px; }
-.signup .field { display: flex; flex-direction: column; gap: 6px; flex: 1 1 280px; min-width: 0; }
-.signup label { font-size: 14px; font-weight: 500; }
-.signup input { height: 56px; padding: 0 20px; font: 400 20px var(--text); color: var(--ink); background: var(--surface); border: 2px solid var(--line); border-radius: 999px; transition: box-shadow 200ms ease; }
-.signup input::placeholder { color: var(--muted); opacity: 1; }
-.signup input:focus { outline: none; box-shadow: 0 0 0 4px var(--sand); }
-.signup .msg { padding-left: 20px; font-size: 16px; font-weight: 500; }
-.signup .msg:empty { display: block; height: 0; margin-top: -8px; }
-.signup .help { padding-left: 20px; font-size: 14px; color: var(--muted); }
-.on-deep .signup label { color: var(--on-deep-muted); }
-.on-deep .signup input { color: var(--field-ink); background: var(--field-bg); border-color: var(--field-bg); }
 .on-deep .btn { border-color: var(--on-deep); }
+a.btn { display: inline-flex; align-items: center; text-decoration: none; }
+.cta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.cta .ulink { font-size: 20px; }
+.cta-note { margin-top: -16px; font-size: 16px; color: var(--muted); }
+.on-deep .cta .ulink { color: var(--on-deep); }
 
 /* Now */
 .split { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 48px; align-items: start; }

@@ -2,6 +2,7 @@
 title: Philip again...
 description: Philip Müller builds tools for an AI-native world, and writes about what he learns along the way.
 share description: Tools for an AI-native world, and notes on what I learn along the way.
+email: hello@philipagain.com
 ---
 
 <!--
@@ -22,8 +23,10 @@ share description: Tools for an AI-native world, and notes on what I learn along
 
 Here we go again... New challenge, new context, new industry, new flatmates. Already rich in experience, still broke in economic units. If you can relate to the existential depth and joy of the 21st century's non-linear career path, tag along. I am uncertain of the future in all aspects but one: We won't get bored any time soon.
 
-Signup note: Occasional notes on what I build and learn. No spam, leave anytime.
+<!-- The button opens an email to the address at the top of this file. -->
+Button text: Get in touch
 Link text: See what I'm building ↓
+Contact note: Hiring, building something, or starting again yourself? Write to me.
 
 
 # So far
@@ -131,9 +134,11 @@ It looks like a zigzag. To me it is one question asked from different sides: wha
 
 Philip, again, because every step started from zero.
 
-[One line for work enquiries, e.g. how you help and how to reach you.]
+Looking for my next start: go-to-market, operations, or a co-founder seat. Wherever systems need designing, running and scaling, write to [hello@philipagain.com](mailto:hello@philipagain.com).
 
 
-# Follow along
+# Get in touch
 
-New tools and what I learn building them, straight to your inbox.
+Heading: Get in touch
+
+Hiring, building something new, or want to swap notes on starting again? I read every email.

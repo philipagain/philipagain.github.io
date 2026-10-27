@@ -11,14 +11,14 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parent
-SECTIONS = ["Hero", "So far", "Now", "Things I build", "About", "Follow along"]
+SECTIONS = ["Hero", "So far", "Now", "Things I build", "About", "Get in touch"]
 STEP_MARKS = ["circle", "square", "triangle"]
 NOW_MARKS = [
     '<span class="mark square" aria-hidden="true" style="background: var(--accent); width: 12px; height: 12px;"></span>',
     '<span class="mark circle" aria-hidden="true" style="background: var(--sky); width: 12px; height: 12px;"></span>',
     '<span class="mark triangle" aria-hidden="true"></span>',
 ]
-SETTINGS = {"place", "photo", "link", "image", "tags", "signup note", "link text"}
+SETTINGS = {"place", "photo", "link", "image", "tags", "button text", "contact note", "link text", "heading"}
 SETTING = re.compile(r"^([A-Za-z ]+):\s+(.*)$")
 
 
@@ -167,21 +167,24 @@ def main():
     hero, _, hero_text = parse_block(sections["Hero"][0])
     _, _, so_far_intro = parse_block(sections["So far"][0])
     _, _, about = parse_block(sections["About"][0])
-    _, _, follow = parse_block(sections["Follow along"][0])
+    contact, _, contact_text = parse_block(sections["Get in touch"][0])
 
     values = {
         "title": attr(front.get("title", "Philip again...")),
         "description": attr(front.get("description", "")),
         "share_description": attr(front.get("share description", "")),
         "hero_lead": inline(" ".join(hero_text)),
-        "signup_note": inline(hero.get("signup note", "")),
+        "email": attr(front.get("email", "hello@philipagain.com")),
+        "button_text": inline(hero.get("button text", "Get in touch")),
+        "contact_note": inline(hero.get("contact note", "")),
         "hero_link": inline(hero.get("link text", "See what I'm building ↓")),
         "so_far_intro": inline(" ".join(so_far_intro)),
         "steps": build_steps(sections["So far"][1]),
         "now": build_now(sections["Now"][0]),
         "tools": build_tools(sections["Things I build"][1]),
         "about": paragraphs_html(about, "        "),
-        "follow": inline(" ".join(follow)),
+        "contact_title": inline(contact.get("heading", "Get in touch")),
+        "contact_text": inline(" ".join(contact_text)),
     }
 
     template = (ROOT / "template.html").read_text(encoding="utf-8")

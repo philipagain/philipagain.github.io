@@ -10,7 +10,7 @@ Don't edit `index.html` by hand: the next rebuild overwrites it.
 ## Structure
 
 ```
-content.md            all the text: hero, So far, Now, Things I build, About, Follow along
+content.md            all the text: hero, So far, Now, Things I build, About, Get in touch
 template.html         the page layout, with {{placeholders}} for the text
 build.py              turns content.md + template.html into index.html (python3 build.py)
 .github/workflows/    runs build.py on every push that changes the three files above
@@ -18,7 +18,7 @@ index.html            the generated page (don't edit by hand)
 404.html              page shown for broken links
 favicon.svg           the three Bauhaus marks
 assets/css/site.css   all styles: colours, fonts, layout, interactions
-assets/js/site.js     signup form behaviour (no data is stored yet)
+assets/js/site.js     the "again..." button and the moving "So far" path
 assets/img/           images (tool icons; later hero.jpg and portrait.jpg)
 assets/fonts/         self-hosted fonts (Comfortaa, Jost) and their licences
 ```
@@ -34,6 +34,7 @@ Every change pushed to `main` is live within about a minute.
 | "Now" lines | `content.md`, section `# Now` |
 | Add a tool | `content.md`, section `# Things I build`: copy a `##` entry |
 | About text | `content.md`, section `# About` |
+| Contact email | `content.md`, the `email:` line at the top (used by every button and link) |
 | Page title and search description | `content.md`, the lines between `---` at the top |
 | Hero photo | save as `assets/img/hero.jpg`, then follow the comment above `<header class="hero">` in `template.html` |
 | Portrait | replace `assets/img/portrait.jpg` |
@@ -49,7 +50,7 @@ To change layout or markup, edit `template.html`, then run `python3 build.py`.
 
 - Fill in all placeholders shown in `[square brackets]`.
 - Remove `<meta name="robots" content="noindex">` from `template.html`, so search engines can find the site.
-- Connect a newsletter service in `assets/js/site.js`, and add a privacy notice page.
+- Make sure `hello@philipagain.com` receives email (the domain needs mail records).
 
 ## Design
 

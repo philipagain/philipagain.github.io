@@ -16,7 +16,7 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/comfortaa-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="assets/css/site.css?v=202610202157">
+  <link rel="stylesheet" href="assets/css/site.css?v=202610271200">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -46,19 +46,11 @@
     </h1>
     <p class="lead">{{hero_lead}}</p>
 
-    <form class="signup" novalidate data-signup>
-      <div class="row">
-        <div class="field">
-          <label for="email-top">Your email</label>
-          <input id="email-top" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-top-help email-top-msg">
-        </div>
-        <button class="btn" type="submit">Follow along</button>
-      </div>
-      <p class="msg" id="email-top-msg" role="status" aria-live="polite"></p>
-      <p class="help" id="email-top-help">{{signup_note}}</p>
-    </form>
-
-    <a class="ulink" href="#build" style="align-self: flex-start; font-size: 20px;">{{hero_link}}</a>
+    <div class="cta">
+      <a class="btn" href="mailto:{{email}}">{{button_text}}</a>
+      <a class="ulink" href="#build">{{hero_link}}</a>
+    </div>
+    <p class="cta-note">{{contact_note}}</p>
   </div>
 </header>
 
@@ -119,21 +111,15 @@
     </div>
   </section>
 
-  <!-- ===== FOLLOW ALONG ===== -->
-  <section class="section on-deep" id="follow" aria-labelledby="follow-title">
+  <!-- ===== GET IN TOUCH ===== -->
+  <section class="section on-deep" id="contact" aria-labelledby="contact-title">
     <div class="wrap stack">
-      <h2 id="follow-title">Follow along</h2>
-      <p style="max-width: 620px;">{{follow}}</p>
-      <form class="signup" novalidate data-signup>
-        <div class="row">
-          <div class="field">
-            <label for="email-bottom">Your email</label>
-            <input id="email-bottom" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-bottom-msg">
-          </div>
-          <button class="btn" type="submit">Follow along</button>
-        </div>
-        <p class="msg" id="email-bottom-msg" role="status" aria-live="polite"></p>
-      </form>
+      <h2 id="contact-title">{{contact_title}}</h2>
+      <p style="max-width: 620px;">{{contact_text}}</p>
+      <div class="cta">
+        <a class="btn" href="mailto:{{email}}">{{button_text}}</a>
+        <a class="ulink" href="mailto:{{email}}">{{email}}</a>
+      </div>
     </div>
   </section>
 
@@ -143,12 +129,12 @@
   <div class="wrap">
     <span>© 2026 Philip Müller</span>
     <nav aria-label="Contact and profiles">
-      <a class="ulink" href="mailto:hello@philipagain.com">hello@philipagain.com</a>
+      <a class="ulink" href="mailto:{{email}}">{{email}}</a>
       <a class="ulink" href="https://github.com/philipagain">GitHub</a>
     </nav>
   </div>
 </footer>
 
-<script src="assets/js/site.js?v=202610202157" defer></script>
+<script src="assets/js/site.js?v=202610271200" defer></script>
 </body>
 </html>
