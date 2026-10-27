@@ -2,7 +2,6 @@
 title: Philip again...
 description: Philip Müller builds tools for an AI-native world, and writes about what he learns along the way.
 share description: Tools for an AI-native world, and notes on what I learn along the way.
-email: hello@philipagain.com
 ---
 
 <!--
@@ -23,10 +22,8 @@ email: hello@philipagain.com
 
 Here we go again... New challenge, new context, new industry, new flatmates. Already rich in experience, still broke in economic units. If you can relate to the existential depth and joy of the 21st century's non-linear career path, tag along. I am uncertain of the future in all aspects but one: We won't get bored any time soon.
 
-<!-- The button opens an email to the address at the top of this file. -->
-Button text: Get in touch
+Signup note: Occasional notes on what I build and learn. No spam, leave anytime.
 Link text: See what I'm building ↓
-Contact note: Hiring, building something, or starting again yourself? Write to me.
 
 
 # So far
@@ -44,26 +41,29 @@ Place: Karlsruhe · Herford · Changzhou · Berlin
 Photo: [Photo: Industrial Engineering]
 
 - BSc Industrial Engineering at KIT.
-- Shopfloor in Herford: metalworking, welding basics, assembling and repairing presses.
-- Lean production in Changzhou: section boards for seven workshop sections.
-- Growth strategy and a three-year target P&L for a concrete goods maker with sites in Germany, France and Spain.
+- Shopfloor at Wemhoener Surface Technologies.
+- Lean production in Changzhou
+- Growth strategy and target P&L for a concrete producer with sites in Germany, France and Spain.
 - Cloud proposals for manufacturing clients and partners at SAP.
 
-## Prediction
-Place: Syntax · TU Delft
+## Prediction 
+Place: KIT · Syntax · TU Delft
 Photo: [Photo: Prediction]
 
 - Built the backend of an app that reads machine nameplates with computer vision.
-- Weighed off-the-shelf AI document tools against building our own.
-- Taught data science, machine learning and agent-based modelling in Python.
+- Taught econometrics and prediction in R.
+- Taught data science, machine learning and agent-based modeling in Python.
+- BSc Thesis: Exploring statistical methods to predict p-hacking and fabricated findings in scientific publications
 
-## Public Policy
+## Public Policy and Systems Thinking
 Place: Delft
 Photo: [Photo: Public Policy]
 
 - MSc Engineering & Policy Analysis at TU Delft.
-- Thesis: an agent-based simulation that stress-tests Bangladesh's roads for disaster readiness.
-
+- Built an agent-based simulation to stress-test the highway network in Bangladesh against natural disasters
+- Developed a System Dynamics model to study the interplay between gentrification and housing supply in Amsterdam
+- Developed a Simulation approach to draft climate and economic policy against deep uncertainties in the Ijssel river
+ 
 ## Economics
 Place: Rotterdam
 Photo: [Photo: Economics]
@@ -82,7 +82,7 @@ Place: ETH Zürich
 Photo: [Photo: Flood Insurance]
 
 - Visiting researcher in the Weather and Climate Risks Group, on an IDEA League research grant.
-- How insurance take-up shifts after a price and climate shock to the US National Flood Insurance Program.
+- Built an agent based model to simulate client behavior against price shifts and climate shocks within the US National Flood Insurance Program.
 
 ## AI Policy
 Place: Opendata.ch · Zürich
@@ -94,12 +94,12 @@ Photo: [Photo: AI Policy]
 
 ## What's next
 
-It starts right below.
+Stay tuned.
 
 
 # Now
 
-- Starting this journey right here...
+- Starting this journey right here... (test)
 - More flood insurance modeling
 - Should we launch a startup?
 
@@ -134,11 +134,10 @@ It looks like a zigzag. To me it is one question asked from different sides: wha
 
 Philip, again, because every step started from zero.
 
-Looking for my next start: go-to-market, operations, or a co-founder seat. Wherever systems need designing, running and scaling, write to [hello@philipagain.com](mailto:hello@philipagain.com).
+[One line for work enquiries, e.g. how you help and how to reach you.]
 
 
-# Get in touch
+# Follow along
 
-Heading: Get in touch
+New tools and what I learn building them, straight to your inbox.
 
-Hiring, building something new, or want to swap notes on starting again? I read every email.
