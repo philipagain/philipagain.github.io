@@ -15,8 +15,8 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preload" href="assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/photos/beach-surfer-walking-1800.webp" imagesrcset="assets/img/photos/beach-surfer-walking-900.webp 900w, assets/img/photos/beach-surfer-walking-1800.webp 1800w" imagesizes="100vw">
-  <link rel="stylesheet" href="assets/css/site.css?v=202610272330">
+  <link rel="preload" as="image" href="assets/img/photos/beach-surfer-walking-1800.webp" imagesrcset="assets/img/photos/beach-surfer-walking-900.webp 900w, assets/img/photos/beach-surfer-walking-1800.webp 1800w, assets/img/photos/beach-surfer-walking-2000.webp 2000w" imagesizes="100vw">
+  <link rel="stylesheet" href="assets/css/site.css?v=202610280000">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -41,7 +41,7 @@
 <section class="hero" aria-labelledby="hero-title">
   <div class="hero-photos" aria-hidden="true">
     <picture class="hero-shot">
-      <img src="assets/img/photos/beach-surfer-walking-1800.webp" srcset="assets/img/photos/beach-surfer-walking-900.webp 900w, assets/img/photos/beach-surfer-walking-1800.webp 1800w" sizes="100vw" alt="">
+      <img src="assets/img/photos/beach-surfer-walking-1800.webp" srcset="assets/img/photos/beach-surfer-walking-900.webp 900w, assets/img/photos/beach-surfer-walking-1800.webp 1800w, assets/img/photos/beach-surfer-walking-2000.webp 2000w" sizes="100vw" alt="">
     </picture>
   </div>
   <div class="frame hero-sky">
@@ -179,15 +179,15 @@
     </div>
   </section>
 
-  <!-- ===== THINGS I BUILD: one block per tool, its exported chat as the picture ===== -->
+  <!-- ===== THINGS I BUILD: the tools side by side, each with a piece of its exported chat ===== -->
   <section class="section build" id="build" aria-labelledby="build-title">
     <div class="frame build-head" data-enter>
       <h2 id="build-title">Things I build</h2>
       <a class="ulink" href="https://github.com/philipagain">All on GitHub</a>
     </div>
-    <div class="tools">
-      <article class="tool">
-        <div class="tool-visual">
+    <div class="frame">
+      <div class="tools" data-enter>
+        <article class="tool">
           <div class="chat" data-ui aria-hidden="true">
             <div class="chat-head"><span class="chat-title">Chat Export for Signal</span><span class="chat-meta">exported chat</span></div>
             <div class="chat-body">
@@ -196,16 +196,13 @@
               <div class="bubble them"><span class="who">Lena</span>Wait, you can do that?</div>
             </div>
           </div>
-        </div>
-        <div class="tool-text">
-          <img src="assets/img/chat-export-for-signal.png" alt="" width="72" height="72" loading="lazy">
-          <h3><a href="https://github.com/phillippmueller/chat-export-for-signal">Chat Export for Signal</a></h3>
-          <p>Ask Claude to export your Signal Desktop chats as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
-          <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
-        </div>
-      </article>
-      <article class="tool">
-        <div class="tool-visual">
+          <div class="tool-text">
+            <div class="tool-name"><img src="assets/img/chat-export-for-signal.png" alt="" width="48" height="48" loading="lazy"><h3><a href="https://github.com/phillippmueller/chat-export-for-signal">Chat Export for Signal</a></h3></div>
+            <p>Ask Claude to export your Signal Desktop chats as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
+            <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
+          </div>
+        </article>
+        <article class="tool">
           <div class="chat" data-ui aria-hidden="true">
             <div class="chat-head"><span class="chat-title">Chat Export for WhatsApp</span><span class="chat-meta">exported chat</span></div>
             <div class="chat-body">
@@ -214,15 +211,14 @@
               <div class="bubble them"><span class="who">Mum</span>Bring the dog</div>
             </div>
           </div>
-        </div>
-        <div class="tool-text">
-          <img src="assets/img/chat-export-for-whatsapp.png" alt="" width="72" height="72" loading="lazy">
-          <h3><a href="https://github.com/phillippmueller/chat-export-for-whatsapp">Chat Export for WhatsApp</a></h3>
-          <p>Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
-          <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
-        </div>
-      </article>
-      <p class="brewing frame" data-enter>Next one brewing...</p>
+          <div class="tool-text">
+            <div class="tool-name"><img src="assets/img/chat-export-for-whatsapp.png" alt="" width="48" height="48" loading="lazy"><h3><a href="https://github.com/phillippmueller/chat-export-for-whatsapp">Chat Export for WhatsApp</a></h3></div>
+            <p>Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
+            <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
+          </div>
+        </article>
+        <div class="tool brewing"><p>Next one brewing...</p></div>
+      </div>
     </div>
   </section>
 
@@ -327,6 +323,6 @@
   <p class="footer-name" aria-hidden="true">Philip again...</p>
 </footer>
 
-<script src="assets/js/site.js?v=202610272330" defer></script>
+<script src="assets/js/site.js?v=202610280000" defer></script>
 </body>
 </html>

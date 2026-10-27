@@ -178,15 +178,15 @@ def build_tools(entries):
         tags = [t.strip() for t in settings.get("tags", "").split(",") if t.strip()]
         tag_html = "".join(f'<span class="tag">{inline(t)}</span>' for t in tags)
         out.append(
-            f'      <article class="tool">\n'
-            f'        <div class="tool-visual">\n{chat_html(title, bullets)}\n        </div>\n'
-            f'        <div class="tool-text">\n'
-            f'          <img src="{attr(settings["image"])}" alt="" width="72" height="72" loading="lazy">\n'
-            f'          <h3><a href="{attr(settings["link"])}">{inline(title)}</a></h3>\n'
-            f'          <p>{inline(" ".join(paragraphs))}</p>\n'
-            f'          <div class="tags">{tag_html}</div>\n'
-            f'        </div>\n'
-            f'      </article>'
+            f'        <article class="tool">\n'
+            f'{chat_html(title, bullets)}\n'
+            f'          <div class="tool-text">\n'
+            f'            <div class="tool-name"><img src="{attr(settings["image"])}" alt="" width="48" height="48" loading="lazy">'
+            f'<h3><a href="{attr(settings["link"])}">{inline(title)}</a></h3></div>\n'
+            f'            <p>{inline(" ".join(paragraphs))}</p>\n'
+            f'            <div class="tags">{tag_html}</div>\n'
+            f'          </div>\n'
+            f'        </article>'
         )
     return "\n".join(out)
 
