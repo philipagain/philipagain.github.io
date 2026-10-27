@@ -13,21 +13,24 @@
   --band: #EADBD0;
   --ink: #3A3538;
   --muted: #5E5141;
-  --accent: #9A3F27;
+  --accent: #A0452E;
   --on-accent: #FFFFFF;
   --surface: #FBF7F2;
   --line: #3A3538;
   --sand: #E3CDBF;
   --sky: #86A8D2;
   --on-sky: #3A3538;
-  --ochre: #C99A3E;
+  --olive: #766752;
+  --logo-1: #A0452E;
+  --logo-2: #86A8D2;
+  --logo-3: #3A3538;
   --deep: #3A3538;
   --deepest: #2B2729;
   --on-deep: #F7F1EA;
   --on-deep-muted: #E3CDBF;
   --field-bg: #F7F1EA;
   --field-ink: #3A3538;
-  --focus: #9A3F27;
+  --focus: #A0452E;
   --display: "Comfortaa", "Futura", "Avenir Next", system-ui, sans-serif;
   --text: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
   --spring: cubic-bezier(.34, 1.56, .64, 1);
@@ -49,6 +52,9 @@
     --on-deep: #F3ECE5;
     --on-deep-muted: #CDBFB3;
     --focus: #86A8D2;
+    --olive: #B3A386;
+    --logo-1: #D9785E;
+    --logo-3: #F3ECE5;
   }
 }
 
@@ -72,11 +78,35 @@ p { margin: 0; }
 .muted { color: var(--muted); }
 .placeholder { color: var(--muted); font-style: italic; }
 
-/* Shapes: the three Bauhaus marks */
+/* Shapes: circle, square and triangle mark the steps and the "Now" list */
 .mark { display: inline-block; flex: 0 0 auto; }
 .mark.circle { width: 14px; height: 14px; border-radius: 50%; background: var(--accent); }
 .mark.square { width: 14px; height: 14px; background: var(--sky); }
-.mark.triangle { width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 14px solid var(--ochre); }
+.mark.triangle { width: 0; height: 0; border-left: 8px solid transparent; border-right: 8px solid transparent; border-bottom: 14px solid var(--olive); }
+
+/* The logo: three see-through leaves. They gather in when the page opens and every
+   now and then after that (assets/js/site.js); a click turns the mark a third. */
+.logo-btn { display: inline-flex; margin: -8px; padding: 8px; border: 0; border-radius: 12px; background: none; cursor: pointer; }
+.logo { width: 38px; height: 33px; overflow: visible; isolation: isolate; }
+.logo .spin, .logo .petal, .logo .leaf { transform-box: view-box; transform-origin: 0 0; }
+.logo .spin { transition: transform 750ms var(--spring); }
+.logo .leaf { fill-opacity: .75; mix-blend-mode: multiply; animation: logo-gather 1.4s var(--spring) both; }
+.logo .petal:nth-child(1) .leaf { fill: var(--logo-1); }
+.logo .petal:nth-child(2) .leaf { fill: var(--logo-2); animation-delay: .12s; }
+.logo .petal:nth-child(3) .leaf { fill: var(--logo-3); animation-delay: .24s; }
+.logo.regather .leaf { animation-name: logo-regather; animation-duration: 2.2s; animation-timing-function: linear; }
+@keyframes logo-gather { from { transform: translateY(-150px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+@keyframes logo-regather {
+  0% { transform: translateY(0); opacity: 1; animation-timing-function: ease-in; }
+  35% { transform: translateY(-150px); opacity: 0; animation-timing-function: cubic-bezier(.34, 1.56, .64, 1); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@media (prefers-color-scheme: dark) {
+  .logo .leaf { fill-opacity: .8; mix-blend-mode: screen; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .logo .leaf, .logo .spin { animation: none; transition: none; }
+}
 
 /* Hero */
 .hero { position: relative; min-height: 820px; display: flex; align-items: center; overflow: hidden; background: var(--band); }

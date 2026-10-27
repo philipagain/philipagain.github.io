@@ -1,5 +1,37 @@
 // philipagain.com: small enhancements, no tracking, no third parties.
 
+// Logo: every click turns it a third, so it lands on the same shape with the colours
+// one place further round. Every 9 to 14 seconds the leaves drift apart and gather in
+// again; a click restarts that wait, and nothing runs while the tab is hidden.
+(function () {
+  var btn = document.querySelector(".logo-btn");
+  if (!btn) return;
+  var svg = btn.querySelector(".logo");
+  var spin = svg.querySelector(".spin");
+  var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var turns = 0, timer;
+
+  function schedule() {
+    clearTimeout(timer);
+    if (calm) return;
+    timer = setTimeout(function () {
+      if (!document.hidden) {
+        svg.classList.remove("regather");
+        void svg.getBoundingClientRect();
+        svg.classList.add("regather");
+      }
+      schedule();
+    }, 9000 + Math.random() * 5000);
+  }
+
+  btn.addEventListener("click", function () {
+    turns += 1;
+    spin.style.transform = "rotate(" + turns * 120 + "deg)";
+    schedule();
+  });
+  schedule();
+})();
+
 // "again...": clicking starts (and stops) a band of "again..." running out of "Philip".
 (function () {
   var btn = document.querySelector(".again-btn");

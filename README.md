@@ -16,7 +16,7 @@ build.py              turns content.md + template.html into index.html (python3 
 .github/workflows/    runs build.py on every push that changes the three files above
 index.html            the generated page (don't edit by hand)
 404.html              page shown for broken links
-favicon.svg           the three Bauhaus marks
+favicon.svg           the logo: three overlapping leaves
 assets/css/site.css   all styles: colours, fonts, layout, interactions
 assets/js/site.js     the "again..." button and the moving "So far" path
 assets/img/           images (tool icons; later hero.jpg and portrait.jpg)
@@ -54,7 +54,8 @@ To change layout or markup, edit `template.html`, then run `python3 build.py`.
 
 ## Design
 
-- **Palette:** Prova, iterated: plaster, blush, charcoal, burnt sienna (actions), sky and ochre (accents only). Dark mode follows the visitor's system setting.
+- **Palette:** [Prova](https://docs.google.com/spreadsheets/d/1VUufIwgOt2PKE-Hl9khhqfq5y1BKrQf6): plaster, blush, charcoal, terracotta (actions), sky and olive (accents only). Dark mode follows the visitor's system setting.
+- **Logo:** three see-through leaves in terracotta, sky and charcoal (`.logo` in `site.css`, behaviour in `site.js`). They gather in on load and every 9 to 14 seconds; a click turns the mark a third.
 - **Type:** Comfortaa 700 for headlines, Jost for text, both under the SIL Open Font License, self-hosted so no visitor data goes to Google.
 - **Accessibility:** text contrast at least 4.5:1, tap targets at least 44 px, visible keyboard focus, animations off when the visitor prefers reduced motion.
 
