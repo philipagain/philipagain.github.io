@@ -6,19 +6,41 @@
   <title>Not found · Philip again.</title>
   <meta name="robots" content="noindex">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="/assets/css/site.css">
+  <link rel="stylesheet" href="/assets/css/site.css?v=202610272030">
+  <style>
+    .lost { min-height: 100svh; display: flex; align-items: center; background: var(--sky-pale); }
+    .lost .frame { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
+    .lost h1 { font-size: clamp(64px, 11vw, 180px); font-weight: 380; line-height: .9; letter-spacing: -0.045em; color: var(--heading); }
+    .lost p { font-size: var(--t-statement); font-family: var(--display); font-variation-settings: "SOFT" 100, "WONK" 1; }
+    .logo-lost { width: 120px; height: 104px; }
+    /* The leaves arrive scattered; "Try again" gathers them before going home. */
+    .logo-lost .leaf { animation: none; transition: transform 1s cubic-bezier(.34, 1.56, .64, 1), opacity 600ms ease; }
+    .logo-lost.scattered .petal:nth-child(1) .leaf { transform: translate(-60px, -260px) rotate(-30deg); }
+    .logo-lost.scattered .petal:nth-child(2) .leaf { transform: translate(40px, -340px) rotate(50deg); }
+    .logo-lost.scattered .petal:nth-child(3) .leaf { transform: translate(-20px, -200px) rotate(15deg); }
+  </style>
 </head>
 <body>
-<main class="hero">
-  <div class="wrap">
-    <div class="eyebrow">
-      <svg class="logo" viewBox="-262 -300 524 454" aria-hidden="true"><g class="spin"><g class="petal"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(120)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(240)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g></g></svg>
-      <span>404</span>
-    </div>
-    <h1>Lost, <span class="again"><span class="word">again.</span></span></h1>
-    <p class="lead">This page doesn't exist (anymore). Let's start over.</p>
-    <a class="ulink" href="/" style="align-self: flex-start; font-size: 20px;">Back to the start →</a>
+<main class="lost">
+  <div class="frame">
+    <svg class="logo logo-lost scattered" viewBox="-262 -300 524 454" aria-hidden="true"><g class="spin"><g class="petal"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(120)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(240)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g></g></svg>
+    <h1>Lost, again.</h1>
+    <p>This page doesn't exist (anymore). Let's start over.</p>
+    <a class="btn" href="/" data-try>Try again</a>
   </div>
 </main>
+<script>
+  // Gather the leaves first, then go home. Without script, the button is a plain link.
+  (function () {
+    var link = document.querySelector("[data-try]");
+    var logo = document.querySelector(".logo-lost");
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { logo.classList.remove("scattered"); return; }
+    link.addEventListener("click", function (event) {
+      event.preventDefault();
+      logo.classList.remove("scattered");
+      setTimeout(function () { window.location.href = "/"; }, 1100);
+    });
+  })();
+</script>
 </body>
 </html>

@@ -16,6 +16,8 @@ email: hello@philipagain.com
   - "- text" is a bullet point. A blank line starts a new paragraph.
   - **bold**, *italic* and [link text](https://...) work anywhere.
   - A paragraph in [square brackets] shows as a greyed-out placeholder.
+  - A paragraph starting with "> " shows as a large pull quote.
+  - "Note: ..." under a step adds a handwritten note in the margin.
   - Comments like this one never show on the site.
 -->
 
@@ -25,22 +27,27 @@ Here we go again... New challenge, new context, new industry, new flatmates. Alr
 
 <!-- The button opens an email to the address at the top of this file. -->
 Button text: Get in touch
-Link text: See what I'm building ↓
+Link text: See what I'm building
 Contact note: Hiring, building something, or starting again yourself? Write to me.
 
 
 # So far
 
-Every header below is a time I started again.
+Every line below is a time I started again. Open one to see what happened there.
+
+<!-- Shown in the footer: "Philip v8, last restart August 2026". -->
+Last restart: August 2026
 
 <!--
-  One "##" entry per step, oldest first. The circle, square and triangle marks cycle on their own.
-  Photo: either a placeholder in [square brackets], or a file such as assets/img/delft.jpg
-  The last entry is always shown as the open "???" step.
+  One "##" entry per step, oldest first. The leaf markers cycle through the logo colours on their own.
+  The counter ("started again ... times") and the version in the footer count these steps for you.
+  Photo: kept for later; not shown in the current design.
+  The last entry is always shown as the open step.
 -->
 
 ## Industrial Engineering
 Place: Karlsruhe · Herford · Changzhou · Berlin
+Note: learned to weld first
 Photo: [Photo: Industrial Engineering]
 
 - BSc Industrial Engineering at KIT.
@@ -75,6 +82,7 @@ Photo: [Photo: Economics]
 
 ## Private Equity
 Place: Rothschild & Co
+Note: yes, really
 Photo: [Photo: Private Equity]
 
 - Due diligence on private market funds.
@@ -102,6 +110,8 @@ Stay tuned.
 
 # Now
 
+Updated: October 2026
+
 - Starting this journey right here...
 - More flood insurance modeling
 - Should we launch a startup?
@@ -119,6 +129,11 @@ Link: https://github.com/phillippmueller/chat-export-for-signal
 Image: assets/img/chat-export-for-signal.png
 Tags: Claude plugin, Open source
 
+<!-- Bullets are the sample chat shown next to the tool: "Name: message". "Me" sits on the right. -->
+- Lena: Did you keep the photos from the trip?
+- Me: Exporting the whole chat right now
+- Lena: Wait, you can do that?
+
 Ask Claude to export your Signal Desktop chats as readable pages and clean, machine-readable data. Everything stays on your computer.
 
 ## Chat Export for WhatsApp
@@ -126,18 +141,57 @@ Link: https://github.com/phillippmueller/chat-export-for-whatsapp
 Image: assets/img/chat-export-for-whatsapp.png
 Tags: Claude plugin, Open source
 
+- Mum: Are you coming home for Christmas?
+- Me: Yes. Again.
+- Mum: Bring the dog
+
 Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.
+
+
+# Photos
+
+Heading: Meanwhile, on film
+
+Between one start and the next, I take pictures.
+
+<!--
+  One "##" per roll of film, newest first. The roll's name is only for you; it isn't shown.
+  One bullet per photo: just its file name.
+  Files live in assets/img/photos as file-name-900.webp (and -1800 or -1300).
+  The first two rolls show straight away; older ones open with "Show older rolls".
+-->
+
+## Portugal and Seville, summer 2026
+- roll1-6405
+- roll1-6410
+- roll1-6412
+- roll1-6420
+- beach-rocks-wide
+- beach-surfboard-umbrella
+- roll1-6426
+- roll1-6429
+- roll1-6430
+- roll1-6431
+- roll1-6434
+- roll1-6437
+
+
+## A Swiss lake, summer 2026
+- roll2-6366
+- roll2-6370
+- roll2-6379
+- roll2-6381
+- roll2-6382
+- roll2-6387
+- roll2-6393
+- roll2-6400
 
 
 # About
 
-I studied industrial engineering and started on the shopfloor, learning to weld and repair presses. Since then I have started again more than once: lean production in China, enterprise software at SAP, policy analysis in Delft, economics in Rotterdam, private markets at Rothschild, flood insurance at ETH Zürich, and a funding programme for AI software at Opendata.ch.
+Heading: Why Philip again?
 
-It looks like a zigzag. To me it is one question asked from different sides: what does it take to build something new and make it work in the real world, technically, financially and under the rules that govern it?
-
-Philip, again, because every step started from zero.
-
-Looking for my next start: go-to-market, operations, or a co-founder seat. Wherever systems need designing, running and scaling, write to [hello@philipagain.com](mailto:hello@philipagain.com).
+It was the pandemic, just after v1. I was bored with nothing to do and no goal in sight, when from the depths of an uninspiring algorithm [this guy](https://www.youtube.com/watch?v=XpBRuwK5aN4&list=RDXpBRuwK5aN4&start_radio=1) came along. No script, no audience, no grand plan. Just a piano, a rooftop, a sunset, and an idea. I put that set on repeat and I built v2 (and v3). Thank you Fred.
 
 
 # Get in touch
