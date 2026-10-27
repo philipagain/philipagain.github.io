@@ -84,7 +84,6 @@ p { margin: 0; }
 .hero .wrap { padding-top: 96px; padding-bottom: 96px; display: flex; flex-direction: column; gap: 32px; }
 .eyebrow { display: flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); }
 .lead { max-width: 720px; font-size: clamp(19px, 1.9vw, 22px); line-height: 1.5; text-wrap: pretty; }
-.photo-note { position: absolute; right: 24px; bottom: 20px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 
 /* "again..." — click it and a band of "again..." runs out of "Philip" */
 .hero h1 { display: flex; flex-wrap: wrap; align-items: flex-start; column-gap: 0.25em; font-size: clamp(56px, 10vw, 148px); line-height: 1.1; letter-spacing: -0.01em; }
