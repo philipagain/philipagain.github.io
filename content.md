@@ -153,8 +153,6 @@ Ask Claude to export your WhatsApp chats, straight from the Mac app or from a ph
 
 Heading: Meanwhile, on film
 
-Between one start and the next, I take pictures.
-
 <!--
   One "##" per roll of film, newest first. The roll's name is only for you; it isn't shown.
   One bullet per photo: just its file name.
