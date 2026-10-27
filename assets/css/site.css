@@ -331,25 +331,24 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .pull { font-size: var(--t-h2); font-style: italic; font-weight: 380; line-height: 1.02; letter-spacing: -0.02em; color: var(--heading); max-width: 16ch; padding: 24px 0; }
 
 /* ---------- Get in touch ---------- */
-.contact { position: relative; overflow: hidden; padding: 96px 0; }
+.contact { position: relative; overflow: hidden; padding: 96px 0 0; }
 .logo-ghost { position: absolute; right: -6vw; top: 50%; width: 52vw; height: auto; transform: translateY(-46%); opacity: .22; pointer-events: none; }
 .contact-rows { position: relative; display: flex; flex-direction: column; }
-.big-row { display: flex; align-items: flex-end; min-height: clamp(88px, 10vw, 150px); padding: 0 0 18px; font-size: clamp(36px, 6vw, 88px); font-weight: 400; line-height: 1; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
+.big-row { display: flex; align-items: flex-end; min-height: clamp(88px, 10vw, 150px); padding: 0 0 18px; font-size: clamp(26px, 6vw, 88px); font-weight: 400; line-height: 1; letter-spacing: -0.03em; color: var(--ink); text-decoration: none; overflow-wrap: anywhere; }
 a.big-row { transition: transform 420ms var(--spring); }
 a.big-row:hover { transform: translateX(14px); }
 .say { gap: 0.35em; align-items: center; }
 .round-btn { display: inline-grid; place-items: center; width: 0.9em; height: 0.9em; border-radius: 50%; background: var(--accent); transition: transform 380ms var(--spring); }
 .round-btn svg { width: 46%; fill: none; stroke: var(--on-accent); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
 .round-btn:hover { transform: rotate(-20deg) scale(1.08); }
-.contact-note { margin-top: 24px; max-width: 30em; }
+.contact-close { position: relative; display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px 40px; margin-top: 48px; }
+.invite-line { font-size: clamp(22px, 3vw, 44px); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
+.contact-note { max-width: 30em; }
 
-/* ---------- Footer ---------- */
-.footer { position: relative; overflow: hidden; padding: 96px 0 40px; }
-.footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 40px; }
-.invite { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
-.invite-line { font-size: clamp(40px, 5vw, 72px); font-weight: 400; line-height: 1; letter-spacing: -0.03em; max-width: 9em; }
-.footer-links { display: flex; flex-direction: column; gap: 10px; font-size: var(--t-body); }
-.legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 72px; font-size: var(--t-small); color: var(--muted); }
+/* The end of the page, inside the same band */
+.legal { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px 24px; margin-top: 80px; padding-top: 20px; padding-bottom: 28px; font-size: var(--t-small); }
+.legal .ulink { font-size: var(--t-small); }
+.legal span:first-of-type { margin-left: auto; }
 
 /* ---------- Entrances (only with script; content is visible without it) ---------- */
 .js [data-enter] > * { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--out), transform 900ms var(--out); transition-delay: calc(var(--i, 0) * 80ms); }
