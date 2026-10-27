@@ -1,0 +1,154 @@
+<!-- Page layout. The words come from content.md: edit them there, not here or in index.html. -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <!-- Draft: keeps search engines away until launch. Remove this line to go public. -->
+  <meta name="robots" content="noindex">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{share_description}}">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#F7F1EA" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#2B2729" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preload" href="assets/fonts/comfortaa-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/css/site.css?v=202610202157">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- ===== HERO ===== -->
+<!-- When the photo is ready: put it in assets/img/hero.jpg, then change the
+     next line to: <header class="hero has-photo" style="--hero-photo: url('assets/img/hero.jpg')"> -->
+<header class="hero">
+  <span class="photo-note" aria-hidden="true">[Background photo: calm, your own]</span>
+  <div class="wrap">
+    <div class="eyebrow">
+      <span class="mark circle" aria-hidden="true"></span>
+      <span class="mark square" aria-hidden="true"></span>
+      <span class="mark triangle" aria-hidden="true"></span>
+      <span>philipagain.com</span>
+    </div>
+    <h1>
+      <span class="name">Philip</span>
+      <span class="again-lane">
+        <button type="button" class="again-btn" aria-label="again" aria-pressed="false">
+          <span class="again-word again-static" aria-hidden="true">again...</span>
+          <span class="again-word again-flow" aria-hidden="true" style="animation-delay: -2.7s;">again...</span>
+          <span class="again-word again-flow" aria-hidden="true" style="animation-delay: 0.6s;">again...</span>
+          <span class="again-word again-flow" aria-hidden="true" style="animation-delay: 3.9s;">again...</span>
+        </button>
+      </span>
+    </h1>
+    <p class="lead">{{hero_lead}}</p>
+
+    <form class="signup" novalidate data-signup>
+      <div class="row">
+        <div class="field">
+          <label for="email-top">Your email</label>
+          <input id="email-top" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-top-help email-top-msg">
+        </div>
+        <button class="btn" type="submit">Follow along</button>
+      </div>
+      <p class="msg" id="email-top-msg" role="status" aria-live="polite"></p>
+      <p class="help" id="email-top-help">{{signup_note}}</p>
+    </form>
+
+    <a class="ulink" href="#build" style="align-self: flex-start; font-size: 20px;">{{hero_link}}</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===== SO FAR ===== -->
+  <!-- Photos: put them in assets/img/ and replace a <div class="photo placeholder-box"> with
+       <img class="photo" src="assets/img/NAME.jpg" alt="..."> -->
+  <section class="section path" id="so-far" aria-labelledby="so-far-title">
+    <div class="wrap path-head">
+      <div class="stack-tight">
+        <h2 id="so-far-title">So far</h2>
+        <p class="muted path-intro">{{so_far_intro}}</p>
+      </div>
+      <button type="button" class="btn btn-quiet path-pause" aria-pressed="false" hidden>Pause</button>
+    </div>
+    <div class="path-scroll" role="region" aria-label="Career path, from left to right" tabindex="0">
+      <div class="path-track">
+        <ol class="path-group">
+{{steps}}
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== NOW ===== -->
+  <section class="section now" id="now" aria-labelledby="now-title">
+    <div class="wrap split">
+      <h2 id="now-title">Now</h2>
+      <ul class="now-list">
+{{now}}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== THINGS I BUILD ===== -->
+  <!-- To add a tool: copy one <a class="card"> block below and change the link, image, title, text and tags. -->
+  <section class="section band" id="build" aria-labelledby="build-title">
+    <div class="wrap">
+      <div class="tools-head">
+        <h2 id="build-title">Things I build</h2>
+        <a class="ulink" href="https://github.com/philipagain">All on GitHub →</a>
+      </div>
+      <div class="grid">
+{{tools}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="wrap about">
+      <img class="portrait" src="assets/img/portrait.jpg" alt="Philip Müller" width="960" height="1200" loading="lazy">
+      <div class="stack">
+        <h2 id="about-title">About</h2>
+{{about}}
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOLLOW ALONG ===== -->
+  <section class="section on-deep" id="follow" aria-labelledby="follow-title">
+    <div class="wrap stack">
+      <h2 id="follow-title">Follow along</h2>
+      <p style="max-width: 620px;">{{follow}}</p>
+      <form class="signup" novalidate data-signup>
+        <div class="row">
+          <div class="field">
+            <label for="email-bottom">Your email</label>
+            <input id="email-bottom" name="email" type="email" placeholder="you@example.com" autocomplete="email" aria-describedby="email-bottom-msg">
+          </div>
+          <button class="btn" type="submit">Follow along</button>
+        </div>
+        <p class="msg" id="email-bottom-msg" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© 2026 Philip Müller</span>
+    <nav aria-label="Contact and profiles">
+      <a class="ulink" href="mailto:hello@philipagain.com">hello@philipagain.com</a>
+      <a class="ulink" href="https://github.com/philipagain">GitHub</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/site.js?v=202610202157" defer></script>
+</body>
+</html>

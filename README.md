@@ -1,12 +1,20 @@
 # philipagain.com
 
 Personal site of Philip Müller. Plain HTML and CSS, served by GitHub Pages.
-No build step, no framework, no tracking, no third-party requests.
+No framework, no tracking, no third-party requests.
+
+**All the words on the site live in [`content.md`](content.md).** Edit that file,
+commit, and a GitHub Action rebuilds `index.html` from it within a couple of minutes.
+Don't edit `index.html` by hand: the next rebuild overwrites it.
 
 ## Structure
 
 ```
-index.html            the page: hero, Now, Things I build, About, Follow along
+content.md            all the text: hero, So far, Now, Things I build, About, Follow along
+template.html         the page layout, with {{placeholders}} for the text
+build.py              turns content.md + template.html into index.html (python3 build.py)
+.github/workflows/    runs build.py on every push that changes the three files above
+index.html            the generated page (don't edit by hand)
 404.html              page shown for broken links
 favicon.svg           the three Bauhaus marks
 assets/css/site.css   all styles: colours, fonts, layout, interactions
@@ -21,20 +29,26 @@ Every change pushed to `main` is live within about a minute.
 
 | What | Where |
 | :- | :- |
-| "Now" lines | `index.html`, section `NOW` |
-| Add a tool | `index.html`, section `THINGS I BUILD`: copy a `card` block |
-| About text | `index.html`, section `ABOUT` |
-| Hero photo | save as `assets/img/hero.jpg`, then follow the comment above `<header class="hero">` |
-| Portrait | save as `assets/img/portrait.jpg`, then follow the comment in `ABOUT` |
+| Hero text | `content.md`, section `# Hero` |
+| A career step | `content.md`, section `# So far`: copy a `##` entry |
+| "Now" lines | `content.md`, section `# Now` |
+| Add a tool | `content.md`, section `# Things I build`: copy a `##` entry |
+| About text | `content.md`, section `# About` |
+| Page title and search description | `content.md`, the lines between `---` at the top |
+| Hero photo | save as `assets/img/hero.jpg`, then follow the comment above `<header class="hero">` in `template.html` |
+| Portrait | replace `assets/img/portrait.jpg` |
 | Colours | `assets/css/site.css`, the variables under `:root` (light) and the dark-mode block below |
 
-Small text edits also work directly on github.com: open the file, click the
-pencil icon, edit, and commit.
+Text edits work directly on github.com: open `content.md`, click the pencil
+icon, edit, and commit. The comment at the top of `content.md` explains its format.
+
+To preview locally, run `python3 build.py` and open `index.html` in a browser.
+To change layout or markup, edit `template.html`, then run `python3 build.py`.
 
 ## Before the public launch
 
 - Fill in all placeholders shown in `[square brackets]`.
-- Remove `<meta name="robots" content="noindex">` from `index.html`, so search engines can find the site.
+- Remove `<meta name="robots" content="noindex">` from `template.html`, so search engines can find the site.
 - Connect a newsletter service in `assets/js/site.js`, and add a privacy notice page.
 
 ## Design
@@ -49,6 +63,6 @@ Once DNS is ready: add a `CNAME` file containing `philipagain.com`, set the cust
 
 ## After changing CSS or JavaScript
 
-`index.html` loads `site.css?v=…` and `site.js?v=…`. Change the `v=` value
+`template.html` loads `site.css?v=…` and `site.js?v=…`. Change the `v=` value
 (for example to the current date and time) whenever you edit those files, so
 browsers fetch the new version instead of a cached old one.
