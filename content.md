@@ -96,7 +96,7 @@ It starts right below.
 
 # Now
 
-- Starting this journey right here... (test)
+- Starting this journey right here...
 - More flood insurance modeling
 - Should we launch a startup?
 
