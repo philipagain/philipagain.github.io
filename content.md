@@ -17,7 +17,7 @@ email: hello@philipagain.com
   - **bold**, *italic* and [link text](https://...) work anywhere.
   - A paragraph in [square brackets] shows as a greyed-out placeholder.
   - A paragraph starting with "> " shows as a large pull quote.
-  - "Note: ..." under a step adds a handwritten note in the margin.
+  - "Note: ..." under a step adds a short handwritten note under it.
   - Comments like this one never show on the site.
 -->
 
@@ -47,7 +47,6 @@ Last restart: August 2026
 
 ## Industrial Engineering
 Place: Karlsruhe · Herford · Changzhou · Berlin
-Note: learned to weld first
 Photo: [Photo: Industrial Engineering]
 
 - BSc Industrial Engineering at KIT.
@@ -85,7 +84,6 @@ Photo: [Photo: Economics]
  
 ## Private Equity
 Place: Rothschild & Co
-Note: yes, really
 Photo: [Photo: Private Equity]
 
 - Due diligence on private market funds.

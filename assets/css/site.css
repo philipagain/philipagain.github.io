@@ -200,7 +200,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .counter { font: 500 28px/1.1 var(--hand); color: var(--muted); }
 .counter .count { display: inline-block; min-width: 1ch; font: 420 var(--t-h2)/1 var(--display); font-variation-settings: "SOFT" 100, "WONK" 1; color: var(--accent); vertical-align: -0.12em; }
 .rows-window { grid-column: 6 / 13; }
-.rows { list-style: none; padding: 0 200px 0 0; display: flex; flex-direction: column; }
+.rows { list-style: none; padding: 0; display: flex; flex-direction: column; }
 /* Pinned (set by site.js on wide screens): the section is as tall as the list needs, the
    stage sticks to the screen, and scrolling the page moves the steps through the window. */
 .so-far.is-pinned { padding: 0; }
@@ -215,8 +215,6 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 @media (min-width: 861px) and (max-width: 1200px) {
   .so-far-head { grid-column: 1 / 5; }
   .rows-window { grid-column: 5 / 13; }
-  .rows { padding-right: 150px; }
-  .margin-note { width: 124px; left: calc(100% + 16px); }
 }
 .so-far.is-pinned .rows { will-change: transform; }
 .row { position: relative; padding: 6px 0; }
@@ -238,7 +236,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .row-next .row-line { cursor: default; }
 .row-next .row-title { font-style: italic; color: var(--accent); }
 .row-next p { padding: 4px 20px 0 50px; color: var(--muted); }
-.margin-note { position: absolute; left: calc(100% + 28px); top: 14px; width: 160px; font: 500 24px/1.05 var(--hand); color: var(--olive); transform: rotate(-4deg); }
+.margin-note { display: block; padding: 4px 20px 0 50px; font: 500 24px/1.05 var(--hand); color: var(--olive); transform: rotate(-2deg); }
 
 /* ---------- Now ---------- */
 .now-grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: center; }
@@ -367,8 +365,6 @@ a.big-row:hover { transform: translateX(14px); }
 @media (max-width: 860px) {
   .bar-nav a:not(.bar-action) { display: none; }
   .so-far-head, .rows-window, .note-card, .now-photo, .tool-visual, .tool-text, .facts, .about-text { grid-column: 1 / -1; }
-  .rows { padding-right: 0; }
-  .margin-note { position: static; display: block; width: auto; padding: 4px 0 0 50px; transform: rotate(-2deg); }
   .row-line { padding: 10px 12px; gap: 14px; }
   .row-line { flex-wrap: wrap; row-gap: 4px; }
   .row-title { flex: 1 1 0; }
