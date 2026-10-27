@@ -17,7 +17,7 @@
   <link rel="preload" href="assets/fonts/fraunces-latin-full-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/jost-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/photos/beach-surfer-walking-1800.webp" imagesrcset="assets/img/photos/beach-surfer-walking-900.webp 900w, assets/img/photos/beach-surfer-walking-1800.webp 1800w, assets/img/photos/beach-surfer-walking-2000.webp 2000w" imagesizes="100vw">
-  <link rel="stylesheet" href="assets/css/site.css?v=202610280130">
+  <link rel="stylesheet" href="assets/css/site.css?v=202610280220">
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -153,26 +153,23 @@
 
 </main>
 
-<!-- ===== GET IN TOUCH, and the end of the page: big rows on pale sky, the logo faint behind them ===== -->
-<footer class="contact band-sky wave" id="contact" aria-labelledby="contact-title">
+<!-- ===== THE END OF THE PAGE: the Get in touch button and three links, on pale sky ===== -->
+<footer class="contact band-sky wave" id="contact">
     <svg class="logo logo-ghost" viewBox="-262 -300 524 454" aria-hidden="true"><g class="spin"><g class="petal"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(120)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(240)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g></g></svg>
-    <div class="frame contact-rows" data-enter>
-      <h2 id="contact-title" class="big-row">{{contact_title}}</h2>
-      <a class="big-row" href="mailto:{{email}}">{{email}}</a>
-      <a class="big-row" href="https://github.com/philipagain">github.com/philipagain</a>
-      <p class="big-row say">Say hello <a class="round-btn" href="mailto:{{email}}" aria-label="Write an email to {{email}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></a></p>
-    </div>
-    <div class="frame contact-close">
-      <p class="invite-line">Start something new, again?</p>
-      <p class="contact-note">{{contact_text}}</p>
+    <div class="frame contact-top" data-enter>
+      <a class="btn" href="mailto:{{email}}">{{button_text}}</a>
+      <nav class="contact-links" aria-label="Contact and profiles">
+        <a class="ulink" href="mailto:{{email}}">Email</a>
+        <a class="ulink" href="https://github.com/philipagain">GitHub</a>
+        <a class="ulink" href="#hero-title">Back to the top</a>
+      </nav>
     </div>
     <div class="frame legal">
-      <a class="ulink" href="#hero-title">Back to the top</a>
       <span>© 2026 Philip Müller</span>
       <span>Philip v{{version}}, last restart {{last_restart}}</span>
     </div>
 </footer>
 
-<script src="assets/js/site.js?v=202610280130" defer></script>
+<script src="assets/js/site.js?v=202610280220" defer></script>
 </body>
 </html>
