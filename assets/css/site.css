@@ -77,7 +77,7 @@ a { color: inherit; }
 ::selection { background: var(--blush); color: #3A3538; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 6px; }
 
-h1, h2, h3, .big-row, .pull, .invite-line, .footer-name, .about-lead, .brewing {
+h1, h2, h3, .big-row, .pull, .invite-line, .about-lead, .brewing {
   font-family: var(--display);
   font-variation-settings: "SOFT" 100, "WONK" 1;
   font-optical-sizing: auto;
@@ -344,13 +344,12 @@ a.big-row:hover { transform: translateX(14px); }
 .contact-note { margin-top: 24px; max-width: 30em; }
 
 /* ---------- Footer ---------- */
-.footer { position: relative; overflow: hidden; padding-top: 96px; }
+.footer { position: relative; overflow: hidden; padding: 96px 0 40px; }
 .footer-top { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 40px; }
 .invite { display: flex; flex-direction: column; align-items: flex-start; gap: 28px; }
 .invite-line { font-size: clamp(40px, 5vw, 72px); font-weight: 400; line-height: 1; letter-spacing: -0.03em; max-width: 9em; }
 .footer-links { display: flex; flex-direction: column; gap: 10px; font-size: var(--t-body); }
 .legal { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 72px; font-size: var(--t-small); color: var(--muted); }
-.footer-name { font-size: 22vw; font-weight: 400; font-style: italic; line-height: .8; letter-spacing: -0.05em; white-space: nowrap; color: var(--sky); padding-left: var(--margin); transform: translateY(24%); margin-top: 12px; }
 
 /* ---------- Entrances (only with script; content is visible without it) ---------- */
 .js [data-enter] > * { opacity: 0; transform: translateY(24px); transition: opacity 700ms var(--out), transform 900ms var(--out); transition-delay: calc(var(--i, 0) * 80ms); }
