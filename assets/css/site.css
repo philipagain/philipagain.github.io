@@ -1,8 +1,8 @@
 /* philipagain.com — site styles
    Direction: "Open window". Soft, breezy, a little quirky.
-   Palette: complementary. Warm side: cream, chocolate, terracotta (one hue, 14°).
+   Palette: complementary. Warm side: linen, chocolate, terracotta (one hue, 14°).
    Cool side: pale sky and deep sky (213°), almost opposite on the colour wheel.
-   Roughly 60% cream and pale sky, 30% chocolate, 10% terracotta and deep sky.
+   Roughly 60% linen and pale sky, 30% chocolate, 10% terracotta and deep sky.
    Type: Fraunces (headlines), Jost (text), Caveat (margin notes only).
    Fonts are self-hosted (SIL Open Font License, see assets/fonts). */
 
@@ -15,11 +15,11 @@
 
 :root {
   color-scheme: light dark;
-  /* Text, background, primary, secondary, accent. One cream, one sand, one pale sky. */
-  --bg: #F5F0E8;          /* background: cream */
-  --stone: #EAE1D5;       /* the one sand: quiet bands */
+  /* Text, background, primary, secondary, accent. One linen, one sand, one pale sky. */
+  --bg: #F7F5F1;          /* background: linen, an off-white with a hint of warmth */
+  --stone: #ECE8E1;       /* the one sand: quiet bands */
   --sky-pale: #E3EBF3;    /* secondary: pale sky bands and cards */
-  --surface: #FFFCF8;     /* small cards inside bands */
+  --surface: #FFFFFF;     /* small cards inside bands */
   --ink: #3E2A24;         /* text: chocolate (terracotta's own hue, darkened) */
   --heading: #3E2A24;
   --muted: #6B5A4E;       /* secondary text, at least 5.2:1 on every ground */
@@ -157,8 +157,8 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .bar-nav a:not(.bar-action):hover { text-decoration: underline; text-decoration-color: var(--accent-2); text-decoration-thickness: 3px; text-underline-offset: 6px; }
 .bar-action { padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); transition: transform 300ms var(--spring); }
 .bar-action:hover { transform: translateY(-2px); }
-.bar:not(.is-scrolled) { color: #3E2A24; background: rgba(245, 240, 232, .62); } /* a light plaster band over the photo, so the sky-blue leaf stays visible */
-.bar:not(.is-scrolled) .bar-action { background: #3E2A24; color: #F5F0E8; }
+.bar:not(.is-scrolled) { color: #3E2A24; background: rgba(247, 245, 241, .62); } /* a light plaster band over the photo, so the sky-blue leaf stays visible */
+.bar:not(.is-scrolled) .bar-action { background: #3E2A24; color: #F7F5F1; }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; min-height: max(640px, 100svh); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; background: #CBD6E1; color: #3E2A24; }
@@ -169,7 +169,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 /* A faint plaster veil over the upper sky lifts the text's contrast; it fades out
    long before the beach, so the surfer and the cliff stay untouched. */
 .hero-photos::after {
-  content: ""; position: absolute; inset: 0 0 40% 0; background: rgba(245, 240, 232, .2);
+  content: ""; position: absolute; inset: 0 0 40% 0; background: rgba(247, 245, 241, .2);
   -webkit-mask: linear-gradient(to bottom, #000 65%, transparent); /* taste-skill-ignore */
           mask: linear-gradient(to bottom, #000 65%, transparent); /* taste-skill-ignore */
 }

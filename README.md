@@ -54,7 +54,7 @@ To change layout or markup, edit `template.html`, then run `python3 build.py`.
 
 ## Design
 
-- **Palette:** complementary, derived from [Prova](https://docs.google.com/spreadsheets/d/1VUufIwgOt2PKE-Hl9khhqfq5y1BKrQf6). Text chocolate `#3E2A24`, background cream `#F5F0E8`, primary terracotta `#A84A2E` (buttons, logo), secondary pale sky `#E3EBF3` (bands, cards), accent deep sky `#4E77A8` (link underlines, margin notes). One sand `#EAE1D5` for quiet bands; soft sky `#86A8D2` for leaves and fills only. Chocolate and terracotta share one hue, the skies sit opposite it on the colour wheel. Dark mode follows the visitor's system setting.
+- **Palette:** complementary, derived from [Prova](https://docs.google.com/spreadsheets/d/1VUufIwgOt2PKE-Hl9khhqfq5y1BKrQf6). Text chocolate `#3E2A24`, background linen `#F7F5F1`, primary terracotta `#A84A2E` (buttons, logo), secondary pale sky `#E3EBF3` (bands, cards), accent deep sky `#4E77A8` (link underlines, margin notes). One sand `#ECE8E1` for quiet bands; soft sky `#86A8D2` for leaves and fills only. Chocolate and terracotta share one hue, the skies sit opposite it on the colour wheel. Dark mode follows the visitor's system setting.
 - **Logo:** three see-through leaves in terracotta, sky and charcoal (`.logo` in `site.css`, behaviour in `site.js`). They gather in on load and every 9 to 14 seconds; a click turns the mark a third.
 - **Type:** Comfortaa 700 for headlines, Jost for text, both under the SIL Open Font License, self-hosted so no visitor data goes to Google.
 - **Accessibility:** text contrast at least 4.5:1, tap targets at least 44 px, visible keyboard focus, animations off when the visitor prefers reduced motion.
