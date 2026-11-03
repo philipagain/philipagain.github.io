@@ -1,11 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-262 -336 524 524">
-  <!-- The logo, filling the icon. Charcoal turns cream in dark tab bars. -->
+  <!-- The logo, filling the icon. Chocolate turns cream in dark tab bars. -->
   <style>
     path { fill-opacity: .88; mix-blend-mode: multiply; }
-    .t { fill: #A0452E; } .s { fill: #86A8D2; } .c { fill: #3A3538; }
+    .t { fill: #A84A2E; } .s { fill: #86A8D2; } .c { fill: #3E2A24; }
     @media (prefers-color-scheme: dark) {
       path { fill-opacity: .92; mix-blend-mode: screen; }
-      .t { fill: #D9785E; } .c { fill: #F3ECE5; }
+      .t { fill: #D9785E; } .c { fill: #F5F0E8; }
     }
   </style>
   <g style="isolation: isolate">

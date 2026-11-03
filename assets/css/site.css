@@ -1,6 +1,8 @@
 /* philipagain.com — site styles
    Direction: "Open window". Soft, breezy, a little quirky.
-   Palette: Prova, led by sky (docs.google.com/spreadsheets/d/1VUufIwgOt2PKE-Hl9khhqfq5y1BKrQf6).
+   Palette: complementary. Warm side: cream, chocolate, terracotta (one hue, 14°).
+   Cool side: pale sky and deep sky (213°), almost opposite on the colour wheel.
+   Roughly 60% cream and pale sky, 30% chocolate, 10% terracotta and deep sky.
    Type: Fraunces (headlines), Jost (text), Caveat (margin notes only).
    Fonts are self-hosted (SIL Open Font License, see assets/fonts). */
 
@@ -13,23 +15,22 @@
 
 :root {
   color-scheme: light dark;
-  /* Ground, ink, one action colour; sky leads. */
-  --bg: #F7F1EA;          /* plaster */
-  --sky-pale: #CBD6E1;    /* hero and "breeze" bands */
-  --stone: #DFD8CF;       /* quiet bands */
-  --sky: #86A8D2;         /* fills and underlines, never text */
-  --ink: #3A3538;         /* charcoal */
-  --muted: #625E5F;       /* cushion grey, on plaster only */
-  --heading: #3A3538;
-  --accent: #A0452E;      /* terracotta: the main button and the logo */
+  /* Text, background, primary, secondary, accent. One cream, one sand, one pale sky. */
+  --bg: #F5F0E8;          /* background: cream */
+  --stone: #EAE1D5;       /* the one sand: quiet bands */
+  --sky-pale: #E3EBF3;    /* secondary: pale sky bands and cards */
+  --surface: #FFFCF8;     /* small cards inside bands */
+  --ink: #3E2A24;         /* text: chocolate (terracotta's own hue, darkened) */
+  --heading: #3E2A24;
+  --muted: #6B5A4E;       /* secondary text, at least 5.2:1 on every ground */
+  --accent: #A84A2E;      /* primary: terracotta, buttons and the logo */
   --on-accent: #FFFFFF;
-  --olive: #766752;
-  --blush: #D5B9A8;
-  --surface: #FBF7F2;
-  --logo-1: #A0452E;
+  --accent-2: #4E77A8;    /* accent: deep sky, terracotta's complement; small touches */
+  --sky: #86A8D2;         /* soft sky: fills and leaves, never text */
+  --logo-1: #A84A2E;
   --logo-2: #86A8D2;
-  --logo-3: #3A3538;
-  --focus: #3A3538;
+  --logo-3: #3E2A24;
+  --focus: #4E77A8;
 
   --display: "Fraunces", "Iowan Old Style", Georgia, serif;
   --text: "Jost", "Futura", "Avenir Next", system-ui, sans-serif;
@@ -51,20 +52,20 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    /* Night sky: charcoal ground, pale sky headings. */
-    --bg: #262A31;
-    --sky-pale: #313A47;
-    --stone: #2E3038;
-    --ink: #F3ECE5;
-    --muted: #C9C4C2;
-    --heading: #CBD6E1;
+    /* Evening: dark chocolate ground, cream text, pale sky headings. */
+    --bg: #211A17;
+    --stone: #2D2420;
+    --sky-pale: #2B323D;
+    --surface: #2D2420;
+    --ink: #F5F0E8;
+    --muted: #CDBFB3;
+    --heading: #DCE6F1;
     --accent: #D9785E;
-    --on-accent: #262A31;
-    --olive: #B3A386;
-    --surface: #2E3038;
+    --on-accent: #211A17;
+    --accent-2: #9DBBE0;
     --logo-1: #D9785E;
-    --logo-3: #F3ECE5;
-    --focus: #CBD6E1;
+    --logo-3: #F5F0E8;
+    --focus: #9DBBE0;
   }
 }
 
@@ -74,7 +75,7 @@ body { margin: 0; font: 400 var(--t-body)/1.6 var(--text); color: var(--ink); ba
 img { max-width: 100%; display: block; }
 p, h1, h2, h3, figure, blockquote, ul, ol { margin: 0; }
 a { color: inherit; }
-::selection { background: var(--blush); color: #3A3538; }
+::selection { background: var(--sky); color: #3E2A24; }
 :focus-visible { outline: 3px solid var(--focus); outline-offset: 4px; border-radius: 6px; }
 
 h1, h2, h3, .pull, .about-lead, .brewing {
@@ -113,7 +114,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .btn:hover { transform: translateY(-3px); }
 .btn:active { transform: translateY(1px) scale(.97); transition-duration: 90ms; }
 .ulink {
-  font-weight: 500; text-decoration: underline; text-decoration-color: var(--sky);
+  font-weight: 500; text-decoration: underline; text-decoration-color: var(--accent-2);
   text-decoration-thickness: 3px; text-underline-offset: 6px;
   transition: text-decoration-thickness 250ms var(--out), text-underline-offset 250ms var(--out);
 }
@@ -124,7 +125,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .leaf-mark path { fill-opacity: .85; }
 .leaf-1 path { fill: var(--logo-1); }
 .leaf-2 path { fill: var(--logo-2); }
-.leaf-3 path { fill: var(--olive); }
+.leaf-3 path { fill: var(--logo-3); }
 .leaf-open path { fill: none; stroke: var(--accent); stroke-width: 14; stroke-dasharray: 26 18; }
 
 /* ---------- The logo ---------- */
@@ -153,14 +154,14 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .full-circle.is-on { opacity: 1; transform: none; }
 .bar-nav { margin-left: auto; display: flex; align-items: center; gap: 28px; font-size: var(--t-small); font-weight: 500; }
 .bar-nav a { text-decoration: none; }
-.bar-nav a:not(.bar-action):hover { text-decoration: underline; text-decoration-color: var(--sky); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+.bar-nav a:not(.bar-action):hover { text-decoration: underline; text-decoration-color: var(--accent-2); text-decoration-thickness: 3px; text-underline-offset: 6px; }
 .bar-action { padding: 10px 18px; border-radius: 999px; background: var(--ink); color: var(--bg); transition: transform 300ms var(--spring); }
 .bar-action:hover { transform: translateY(-2px); }
-.bar:not(.is-scrolled) { color: #3A3538; background: rgba(247, 241, 234, .62); } /* a light plaster band over the photo, so the sky-blue leaf stays visible */
-.bar:not(.is-scrolled) .bar-action { background: #3A3538; color: #F7F1EA; }
+.bar:not(.is-scrolled) { color: #3E2A24; background: rgba(245, 240, 232, .62); } /* a light plaster band over the photo, so the sky-blue leaf stays visible */
+.bar:not(.is-scrolled) .bar-action { background: #3E2A24; color: #F5F0E8; }
 
 /* ---------- Hero ---------- */
-.hero { position: relative; min-height: max(640px, 100svh); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; background: #CBD6E1; color: #3A3538; }
+.hero { position: relative; min-height: max(640px, 100svh); display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; background: #CBD6E1; color: #3E2A24; }
 .hero-photos { position: absolute; inset: 0; }
 .hero-shot { position: absolute; inset: 0; }
 .hero-shot img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 100%; animation: drift 40s ease-in-out infinite alternate; }
@@ -168,14 +169,14 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 /* A faint plaster veil over the upper sky lifts the text's contrast; it fades out
    long before the beach, so the surfer and the cliff stay untouched. */
 .hero-photos::after {
-  content: ""; position: absolute; inset: 0 0 40% 0; background: rgba(247, 241, 234, .2);
+  content: ""; position: absolute; inset: 0 0 40% 0; background: rgba(245, 240, 232, .2);
   -webkit-mask: linear-gradient(to bottom, #000 65%, transparent); /* taste-skill-ignore */
           mask: linear-gradient(to bottom, #000 65%, transparent); /* taste-skill-ignore */
 }
 .hero-sky { position: relative; padding-top: clamp(104px, 13vh, 150px); }
 .hero h1 {
   display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 0.22em;
-  font-size: var(--t-monument); font-weight: 380; line-height: .9; letter-spacing: -0.045em; color: #3A3538;
+  font-size: var(--t-monument); font-weight: 380; line-height: .9; letter-spacing: -0.045em; color: #3E2A24;
 }
 .hero h1 .name { flex: 0 0 auto; }
 /* "again..." — click it and a band of "again..." runs out of "Philip", and the view changes */
@@ -192,7 +193,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .hero-sand { position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: flex-start; gap: 24px 48px; padding-bottom: clamp(32px, 6vh, 64px); }
 .hero .lead { margin-top: clamp(28px, 5vh, 56px); max-width: 46em; font-size: clamp(20px, 1.65vw, 25px); line-height: 1.45; text-wrap: pretty; font-family: var(--display); font-variation-settings: "SOFT" 100, "WONK" 1; font-weight: 330; }
 .hero-act { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
-.hero .ulink { color: #3A3538; }
+.hero .ulink { color: #3E2A24; }
 
 /* ---------- So far ---------- */
 .so-far-grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; row-gap: 64px; }
@@ -236,7 +237,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .row-next .row-line { cursor: default; }
 .row-next .row-title { font-style: italic; color: var(--accent); }
 .row-next p { padding: 4px 20px 0 50px; color: var(--muted); }
-.margin-note { display: block; padding: 4px 20px 0 50px; font: 500 24px/1.05 var(--hand); color: var(--olive); transform: rotate(-2deg); }
+.margin-note { display: block; padding: 4px 20px 0 50px; font: 500 24px/1.05 var(--hand); color: var(--accent-2); transform: rotate(-2deg); }
 
 /* ---------- Now ---------- */
 .now-grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; align-items: center; }
@@ -263,7 +264,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .tool-name img { width: 48px; height: 48px; border-radius: 12px; flex: 0 0 auto; }
 .tool-text h3 { font-size: clamp(22px, 1.9vw, 28px); font-weight: 420; line-height: 1.1; letter-spacing: -0.015em; }
 .tool-text h3 a { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: 6px; transition: text-decoration-color 250ms ease; }
-.tool-text h3 a:hover { text-decoration-color: var(--sky); }
+.tool-text h3 a:hover { text-decoration-color: var(--accent-2); }
 .tool-text p { font-size: 17px; line-height: 1.5; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag { padding: 5px 12px; font-size: 14px; font-weight: 500; border-radius: 999px; background: var(--bg); }
@@ -278,7 +279,7 @@ h2 { font-size: var(--t-h2); font-weight: 420; line-height: 1; letter-spacing: -
 .chat-body { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; }
 .bubble { max-width: 82%; padding: 7px 12px 8px; border-radius: 14px 14px 14px 4px; background: var(--sky-pale); font-size: 15px; line-height: 1.35; }
 .tool:nth-child(1) .bubble:not(.me) { background: var(--stone); }
-.bubble.me { align-self: flex-end; border-radius: 14px 14px 4px 14px; background: var(--blush); color: #3A3538; }
+.bubble.me { align-self: flex-end; border-radius: 14px 14px 4px 14px; background: var(--sky); color: #3E2A24; }
 .bubble .who { display: block; font-size: 12px; font-weight: 600; opacity: .7; }
 
 /* ---------- Photos: one strip per roll of film ---------- */
