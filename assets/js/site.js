@@ -284,3 +284,34 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   fit();
 })();
 
+// The towers: while the hero holds still they rise like a sheet and the text clears out of the way.
+(function () {
+  var track = document.querySelector(".hero-track");
+  if (!track || calm) return;
+  var shot = track.querySelector(".hero-shot");
+  var parts = track.querySelectorAll(".hero-sky, .hero-sand");
+  document.documentElement.classList.add("towers");
+  var queued = false, drop = 0;
+  function measure() {
+    drop = parseFloat(getComputedStyle(shot).getPropertyValue("--drop")) / 100 || 0;
+    ask();
+  }
+  function paint() {
+    queued = false;
+    var hero = track.firstElementChild;
+    var span = track.offsetHeight - hero.offsetHeight;
+    var p = span > 0 ? Math.min(1, Math.max(0, -track.getBoundingClientRect().top / (span * 0.9))) : 0;
+    shot.style.transform = "translate3d(0," + (drop * (1 - p) * shot.offsetHeight).toFixed(1) + "px,0)";
+    var fade = Math.max(0, 1 - p / 0.45);
+    parts.forEach(function (el) {
+      el.style.opacity = fade.toFixed(3);
+      el.style.transform = p > 0 ? "translate3d(0," + (-p * 70).toFixed(1) + "px,0)" : "";
+      el.style.pointerEvents = fade < 0.2 ? "none" : "";
+    });
+  }
+  function ask() { if (!queued) { queued = true; requestAnimationFrame(paint); } }
+  window.addEventListener("scroll", ask, { passive: true });
+  window.addEventListener("resize", measure);
+  measure();
+})();
+
