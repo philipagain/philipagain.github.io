@@ -414,3 +414,14 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 .paper .so-far { position: sticky; z-index: 1; }
 .paper .so-far > .frame { transform-origin: 50% 100%; will-change: transform, opacity; }
 .paper .target { will-change: clip-path; }
+
+/* Hero photo: the towers rise from the bottom and the text sits in open sky. */
+.hero { background: #E6E6E5; }
+.hero-photos::after { display: none; }
+.hero-shot { inset: 40% 0 0 0; }
+.hero-shot img { object-position: 50% 0; animation: none;
+  -webkit-mask: linear-gradient(to bottom, transparent, #000 26%); /* taste-skill-ignore */
+          mask: linear-gradient(to bottom, transparent, #000 26%); /* taste-skill-ignore */
+}
+.hero-act .ulink { padding: 10px 18px; border-radius: 999px; background: #F7F5F1; text-decoration: none; }
+@media (max-width: 700px) { .hero-shot { inset: 66% 0 0 0; } }
