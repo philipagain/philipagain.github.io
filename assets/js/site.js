@@ -223,14 +223,14 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var move = document.querySelector(".target-move");
   var lines = document.querySelectorAll(".target-lines li");
   if (!track || !move) return;
-  if (!("IntersectionObserver" in window)) {
-    lines.forEach(function (l) { l.classList.add("is-in"); });
-  } else {
+  // The lines are visible by default; they are only hidden once this script is there to reveal them.
+  if ("IntersectionObserver" in window && lines.length) {
+    document.querySelector(".target-lines").classList.add("reveal");
     var seen = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add("is-in"); seen.unobserve(e.target); }
       });
-    }, { threshold: 0.25, rootMargin: "0px 0px -8% 0px" });
+    }, { threshold: 0.1 });
     lines.forEach(function (l) { seen.observe(l); });
   }
   if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
