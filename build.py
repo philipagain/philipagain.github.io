@@ -111,14 +111,13 @@ def note_html(note, indent):
 
 
 def build_steps(entries):
-    """So far: one row per start. The last entry is the open one ("What's next")."""
+    """So far: one row per start, each opening to show what happened there."""
     if not entries:
         fail('"# So far" needs at least one "##" entry')
     out = []
     for i, (title, lines) in enumerate(entries):
         settings, bullets, paragraphs = parse_block(lines)
-        last = i == len(entries) - 1
-        leaf = LEAF_SVG.format(cls="leaf-open" if last else LEAVES[i % 3])
+        leaf = LEAF_SVG.format(cls=LEAVES[i % 3])
         place = f'<span class="row-place">{inline(settings["place"])}</span>' if "place" in settings else ""
         body = []
         if bullets:
@@ -128,19 +127,13 @@ def build_steps(entries):
         if paragraphs:
             body.append(paragraphs_html(paragraphs, "              "))
         note = note_html(settings.get("note"), "            ")
-        if last:
-            out.append(f'          <li class="row row-next" data-start>\n'
-                       f'            <div class="row-line">{leaf}<span class="row-title">{inline(title)}</span>{place}</div>\n'
-                       + ("\n".join(body) + "\n" if body else "") +
-                       "          </li>")
-        else:
-            out.append(f'          <li class="row" data-start>\n'
-                       f'            <details>\n'
-                       f'              <summary class="row-line">{leaf}<span class="row-title">{inline(title)}</span>{place}<span class="row-toggle" aria-hidden="true"></span></summary>\n'
-                       + "\n".join(body) + "\n"
-                       f'            </details>\n'
-                       + (note + "\n" if note else "") +
-                       "          </li>")
+        out.append(f'          <li class="row" data-start>\n'
+                   f'            <details>\n'
+                   f'              <summary class="row-line">{leaf}<span class="row-title">{inline(title)}</span>{place}<span class="row-toggle" aria-hidden="true"></span></summary>\n'
+                   + "\n".join(body) + "\n"
+                   f'            </details>\n'
+                   + (note + "\n" if note else "") +
+                   "          </li>")
     return "\n".join(out)
 
 
@@ -241,13 +234,13 @@ def build_rolls(entries):
 def main():
     front, sections = parse((ROOT / "content.md").read_text(encoding="utf-8"))
     hero, _, hero_text = parse_block(sections["Hero"][0])
-    so_far, _, so_far_intro = parse_block(sections["So far"][0])
+    so_far, _, _ = parse_block(sections["So far"][0])
     now, _, _ = parse_block(sections["Now"][0])
     photos, _, photos_text = parse_block(sections["Photos"][0])
     about_settings, _, about = parse_block(sections["About"][0])
     contact, _, contact_text = parse_block(sections["Get in touch"][0])
     steps = sections["So far"][1]
-    restarts = max(len(steps) - 1, 0)
+    restarts = len(steps)
 
     values = {
         "title": attr(front.get("title", "Philip again...")),
@@ -259,7 +252,6 @@ def main():
         "button_text": inline(hero.get("button text", "Get in touch")),
         "contact_note": inline(hero.get("contact note", "")),
         "hero_link": inline(hero.get("link text", "See what I'm building")),
-        "so_far_intro": inline(" ".join(so_far_intro)),
         "restarts": str(restarts),
         "last_restart": inline(so_far.get("last restart", "")),
         "version": str(restarts + 1),

@@ -192,8 +192,6 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 /* ---------- So far ---------- */
 .so-far-grid { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: 24px; row-gap: 64px; }
 .so-far-head { grid-column: 1 / 6; display: flex; flex-direction: column; gap: 28px; align-self: start; }
-.counter { font: 500 28px/1.1 var(--hand); color: var(--muted); }
-.counter .count { display: inline-block; min-width: 1ch; font: 500 var(--t-h2)/1 var(--display); color: var(--accent); vertical-align: -0.12em; }
 .rows-window { grid-column: 6 / 13; }
 .rows { list-style: none; padding: 0; display: flex; flex-direction: column; }
 /* Pinned (set by site.js on wide screens): the section is as tall as the list needs, the
@@ -228,9 +226,6 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 .row ul { list-style: none; padding: 18px 20px 12px 50px; display: flex; flex-direction: column; gap: 10px; }
 .row ul li { position: relative; }
 .row ul li::before { content: ""; position: absolute; left: -22px; top: .7em; width: 8px; height: 8px; border-radius: 50%; background: var(--sky); }
-.row-next .row-line { cursor: default; }
-.row-next .row-title { font-style: italic; color: var(--accent); }
-.row-next p { padding: 4px 20px 0 50px; color: var(--muted); }
 .margin-note { display: block; padding: 4px 20px 0 50px; font: 500 24px/1.05 var(--hand); color: var(--accent-2); transform: rotate(-2deg); }
 
 /* ---------- Now ---------- */
@@ -347,7 +342,7 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
   .row-title { flex: 1 1 0; }
   .row-toggle { order: 2; }
   .row-place { display: none; order: 3; flex-basis: 100%; max-width: none; margin-left: 30px; text-align: left; }
-  .row details[open] .row-place, .row-next .row-place { display: block; }
+  .row details[open] .row-place { display: block; }
   .tools { grid-template-columns: 1fr; }
   .brewing { min-height: 120px; }
   .facts { order: 2; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 20px 32px; }
@@ -412,3 +407,10 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
   .target-stage { position: static; height: auto; padding: 18vh 0 6vh; }
   .target-lines.reveal li { opacity: 1; transform: none; transition: none; }
 }
+
+/* The sheet: So far holds still at its end while the chocolate section slides up over it.
+   site.js adds .paper (never with reduced motion) and sets the holding position. */
+.target { position: relative; z-index: 2; }
+.paper .so-far { position: sticky; z-index: 1; }
+.paper .so-far > .frame { transform-origin: 50% 100%; will-change: transform, opacity; }
+.paper .target { will-change: clip-path; }

@@ -23,7 +23,7 @@ email: hello@philipagain.com
 
 # Hero
 
-Here we go again... New challenge, new context, new industry, new flatmates. Already rich in experience, still broke in economic units. If you can relate to the existential depth and joy of the 21st century's non-linear career path, tag along. I am uncertain of the future in all aspects but one: We won't get bored any time soon.
+Here we go again... New challenge, new context, new industry, new flatmates. Already rich in experience, still chasing economic units... If you can relate to the existential depth and joy of the 21st century's non-linear career path, tag along. I am uncertain of the future in all aspects but one: We won't get bored any time soon.
 
 <!-- The button opens an email to the address at the top of this file. -->
 Button text: Get in touch
@@ -33,16 +33,13 @@ Contact note: Hiring, building something, or starting again yourself? Write to m
 
 # So far
 
-Every line below is a time I started again. Open one to see what happened there.
-
 <!-- Shown in the footer: "Philip v8, last restart August 2026". -->
 Last restart: August 2026
 
 <!--
   One "##" entry per step, oldest first. The leaf markers cycle through the logo colours on their own.
-  The counter ("started again ... times") and the version in the footer count these steps for you.
+  The "started again" number and the version count these steps for you.
   Photo: kept for later; not shown in the current design.
-  The last entry is always shown as the open step.
 -->
 
 ## Industrial Engineering
@@ -103,10 +100,6 @@ Photo: [Photo: AI Policy]
 - Operational lead of the fifth funding round of the Prototype Fund.
 - Connected software teams with grant funding and AI-compliance researchers, to launch under EU and Swiss AI law.
 - 110 teams vetted, 5 selected, CHF 1M in funding managed.
-
-## What's next
-
-Stay tuned.
 
 
 # Now

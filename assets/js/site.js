@@ -250,3 +250,37 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   addEventListener("resize", ask);
   paint();
 })();
+
+// The sheet: as the chocolate section rises it opens from a slightly narrower, rounded
+// sheet to the full page, and So far settles back underneath it.
+(function () {
+  var sheet = document.querySelector(".target");
+  var under = document.querySelector(".so-far");
+  if (!sheet || !under || calm) return;
+  var page = under.querySelector(".frame");
+  document.documentElement.classList.add("paper");
+  var queued = false;
+  function fit() {
+    under.style.top = Math.min(0, window.innerHeight - under.offsetHeight) + "px";
+    ask();
+  }
+  function paint() {
+    queued = false;
+    var p = 1 - sheet.getBoundingClientRect().top / window.innerHeight;
+    p = Math.min(1, Math.max(0, p));
+    var e = 1 - (1 - p) * (1 - p) * (1 - p);
+    var rest = 1 - e;
+    sheet.style.clipPath = rest > 0.001
+      ? "inset(0 " + (rest * 5).toFixed(2) + "% 0 " + (rest * 5).toFixed(2) + "% round " + (rest * 36).toFixed(1) + "px " + (rest * 36).toFixed(1) + "px 0 0)"
+      : "none";
+    page.style.transform = p > 0 ? "scale(" + (1 - e * 0.05).toFixed(4) + ")" : "";
+    page.style.opacity = p > 0 ? (1 - e * 0.6).toFixed(3) : "";
+  }
+  function ask() { if (!queued) { queued = true; requestAnimationFrame(paint); } }
+  window.addEventListener("scroll", ask, { passive: true });
+  window.addEventListener("resize", fit);
+  under.addEventListener("toggle", fit, true);
+  if (document.fonts) document.fonts.ready.then(fit);
+  fit();
+})();
+
