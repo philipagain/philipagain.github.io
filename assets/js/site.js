@@ -293,7 +293,13 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   document.documentElement.classList.add("towers");
   var queued = false, drop = 0;
   function measure() {
-    drop = parseFloat(getComputedStyle(shot).getPropertyValue("--drop")) / 100 || 0;
+    // Start with the tallest peak just under the text, whatever the screen size.
+    var sky = track.querySelector(".hero-sky");
+    var lead = track.querySelector(".lead");
+    var w = shot.offsetWidth, h = shot.offsetHeight;
+    var shown = Math.max(h, w * 2075 / 3130); // the photo's height as drawn
+    var under = sky.offsetTop + lead.offsetTop + lead.offsetHeight + 16;
+    drop = Math.min(0.7, Math.max(0.1, (under - 0.175 * shown) / h));
     ask();
   }
   function paint() {
@@ -312,6 +318,7 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function ask() { if (!queued) { queued = true; requestAnimationFrame(paint); } }
   window.addEventListener("scroll", ask, { passive: true });
   window.addEventListener("resize", measure);
+  if (document.fonts) document.fonts.ready.then(measure);
   measure();
 })();
 

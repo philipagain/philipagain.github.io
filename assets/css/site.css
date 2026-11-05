@@ -418,12 +418,12 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 /* Hero photo: the towers wait low with the text in open sky; on scroll they rise and fill the page. */
 .hero { background: #E6E6E5; }
 .hero-photos::after { display: none; }
-.hero-shot { --drop: 40%; transform: translate3d(0, var(--drop), 0); will-change: transform; }
+.hero-shot { --drop: 33%; transform: translate3d(0, var(--drop), 0); will-change: transform; }
 .hero-shot img { object-position: 50% 0; animation: none;
   -webkit-mask: linear-gradient(to bottom, transparent, #000 12%); /* taste-skill-ignore */
           mask: linear-gradient(to bottom, transparent, #000 12%); /* taste-skill-ignore */
 }
 .hero-act .ulink { padding: 10px 18px; border-radius: 999px; background: #F7F5F1; text-decoration: none; }
-@media (max-width: 700px) { .hero-shot { --drop: 62%; } .hero-shot img { object-position: 74% 0; } }
+@media (max-width: 700px) { .hero-shot { --drop: 54%; } .hero-shot img { object-position: 74% 0; } }
 .towers .hero-track { height: calc(max(640px, 100svh) + 100svh); }
 .towers .hero { position: sticky; top: min(0px, calc(100svh - 640px)); }
