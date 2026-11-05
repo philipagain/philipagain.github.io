@@ -284,6 +284,30 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   fit();
 })();
 
+// The two big statements fit the width of the page exactly.
+(function () {
+  function textSpan(first, last) {
+    var a = document.createRange(), b = document.createRange();
+    a.selectNodeContents(first); b.selectNodeContents(last);
+    return b.getBoundingClientRect().right - a.getBoundingClientRect().left;
+  }
+  function fitOne(el, first, last) {
+    if (!el || !first || !last) return;
+    var box = getComputedStyle(el.parentElement);
+    var room = el.parentElement.clientWidth - parseFloat(box.paddingLeft) - parseFloat(box.paddingRight);
+    el.style.fontSize = "100px";
+    var width = textSpan(first, last);
+    if (width > 0) el.style.fontSize = (room / width * 100).toFixed(2) + "px";
+  }
+  function fit() {
+    fitOne(document.querySelector(".hero h1"), document.querySelector(".hero h1 .name"), document.querySelector(".again-static"));
+    fitOne(document.querySelector(".target-move"), document.querySelector(".tm-from"), document.querySelector(".tm-to"));
+  }
+  window.addEventListener("resize", fit);
+  if (document.fonts) document.fonts.ready.then(fit);
+  fit();
+})();
+
 // The towers: while the hero holds still they rise like a sheet and the text clears out of the way.
 (function () {
   var track = document.querySelector(".hero-track");
