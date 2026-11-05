@@ -1,7 +1,7 @@
 ---
 title: Philip again...
-description: Philip Müller builds tools for an AI-native world, and writes about what he learns along the way.
-share description: Tools for an AI-native world, and notes on what I learn along the way.
+description: Philip Müller builds tools for an AI-native world.
+share description: Tools for an AI-native world.
 email: hello@philipagain.com
 ---
 
@@ -60,27 +60,27 @@ Place: SAP · Syntax
 Photo: [Photo: Prediction]
 
 - Built the backend of an AI solution that reads machine nameplates through a phone app.
-- Ran a built-v-buy cost-benefit analysis against of the shelf OCR solutions
-- Wrote business proposals for MES cloud solutions
+- Ran a build-vs-buy cost-benefit analysis against off-the-shelf OCR solutions.
+- Wrote business proposals for MES cloud solutions.
   
 ## Systems Engineering
 Place: Delft
 Photo: [Photo: Public Policy]
 
 - MSc Engineering & Policy Analysis at TU Delft.
-- Built an agent-based simulation to stress-test the highway network in Bangladesh against natural disasters
-- Developed a System Dynamics model to study the interplay between gentrification and housing supply in Amsterdam
-- Developed a Simulation approach to draft climate and economic policy against deep uncertainties in the Ijssel river
-- Taught data science, machine learning, computer simulation in python 
+- Built an agent-based simulation to stress-test the highway network in Bangladesh against natural disasters.
+- Developed a system dynamics model to study the interplay between gentrification and housing supply in Amsterdam.
+- Developed a simulation approach to draft climate and economic policy under deep uncertainty on the IJssel river.
+- Taught data science, machine learning and computer simulation in Python.
  
 ## Economics
 Place: Rotterdam
 Photo: [Photo: Economics]
 
 - MSc Economics & Business at Erasmus University Rotterdam.
-- Game theory
-- Causal identification
-- Climate adaptation and development economics 
+- Game theory.
+- Causal identification.
+- Climate adaptation and development economics.
  
 ## Private Equity
 Place: Rothschild & Co
@@ -94,7 +94,7 @@ Place: ETH Zürich
 Photo: [Photo: Flood Insurance]
 
 - Visiting researcher in the Weather and Climate Risks Group, on an IDEA League research grant.
-- Built an agent based model to simulate client behavior against price shifts and climate shocks within the US National Flood Insurance Program.
+- Built an agent-based model to simulate client behavior against price shifts and climate shocks within the US National Flood Insurance Program.
 
 ## AI Policy
 Place: Opendata.ch · Zürich
@@ -111,11 +111,25 @@ Stay tuned.
 
 # Now
 
-Updated: October 2026
+<!--
+  The dark section after "So far". "{version}" fills in the current version by itself.
+  One "##" per line under the statement, with its short supporting line below it.
+-->
+Heading: What's next for Philip_v{version}?
+From: Research
+To: Action
 
-- Starting this journey right here...
-- More flood insurance modeling
-- Should we launch a startup?
+## Ownership
+
+... in my work, be it a sales pipeline, operating system, portfolio, ...
+
+## Business development and GTM Engineering
+
+I want to drive the sales or the systems underneath.
+
+## AI-native workflows and companies
+
+A new era of business is here. Let's learn from the fastest and the best.
 
 
 # Things I build

@@ -14,7 +14,7 @@ ROOT = Path(__file__).parent
 SECTIONS = ["Hero", "So far", "Now", "Things I build", "Photos", "About", "Get in touch"]
 SETTINGS = {
     "place", "photo", "link", "image", "tags", "button text", "contact note", "link text",
-    "heading", "note", "updated", "kind", "who", "last restart",
+    "heading", "note", "from", "to", "kind", "who", "last restart",
 }
 SETTING = re.compile(r"^([A-Za-z ]+):\s+(.*)$")
 # The three logo colours, used in turn for the small leaf markers.
@@ -144,12 +144,13 @@ def build_steps(entries):
     return "\n".join(out)
 
 
-def build_now(lines):
-    _, bullets, _ = parse_block(lines)
-    return "\n".join(
-        f'          <li>{LEAF_SVG.format(cls=LEAVES[i % 3])}<span>{inline(b)}</span></li>'
-        for i, b in enumerate(bullets)
-    )
+def build_next(entries):
+    out = []
+    for title, lines in entries:
+        _, _, paragraphs = parse_block(lines)
+        proof = f'<span class="tl-proof">{inline(" ".join(paragraphs))}</span>' if paragraphs else ""
+        out.append(f'        <li><span class="tl-name">{inline(title)}</span>{proof}</li>')
+    return "\n".join(out)
 
 
 def chat_html(title, bullets):
@@ -241,7 +242,7 @@ def main():
     front, sections = parse((ROOT / "content.md").read_text(encoding="utf-8"))
     hero, _, hero_text = parse_block(sections["Hero"][0])
     so_far, _, so_far_intro = parse_block(sections["So far"][0])
-    now, _, now_text = parse_block(sections["Now"][0])
+    now, _, _ = parse_block(sections["Now"][0])
     photos, _, photos_text = parse_block(sections["Photos"][0])
     about_settings, _, about = parse_block(sections["About"][0])
     contact, _, contact_text = parse_block(sections["Get in touch"][0])
@@ -253,7 +254,6 @@ def main():
         "description": attr(front.get("description", "")),
         "share_description": attr(front.get("share description", "")),
         "email": attr(front.get("email", "hello@philipagain.com")),
-        "updated": inline(now.get("updated", "")),
         "hero_lead": inline(" ".join(hero_text)),
         "hero_who": inline(hero.get("who", "")),
         "button_text": inline(hero.get("button text", "Get in touch")),
@@ -264,8 +264,10 @@ def main():
         "last_restart": inline(so_far.get("last restart", "")),
         "version": str(restarts + 1),
         "steps": build_steps(steps),
-        "now_intro": paragraphs_html(now_text, "        "),
-        "now": build_now(sections["Now"][0]),
+        "next_heading": inline(now.get("heading", "What's next?").replace("{version}", str(restarts + 1))),
+        "next_from": inline(now.get("from", "")),
+        "next_to": inline(now.get("to", "")),
+        "next_lines": build_next(sections["Now"][1]),
         "tools": build_tools(sections["Things I build"][1]),
         "photos_title": inline(photos.get("heading", "Photos")),
         "photos_intro": inline(" ".join(photos_text)),

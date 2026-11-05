@@ -216,3 +216,37 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     document.title = document.hidden ? "Come back again..." : title;
   });
 })();
+
+/* What's next: "from" fades into "to" as the pinned statement scrolls; the lines arrive one at a time. */
+(function () {
+  var track = document.querySelector(".target-track");
+  var move = document.querySelector(".target-move");
+  var lines = document.querySelectorAll(".target-lines li");
+  if (!track || !move) return;
+  if (!("IntersectionObserver" in window)) {
+    lines.forEach(function (l) { l.classList.add("is-in"); });
+  } else {
+    var seen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add("is-in"); seen.unobserve(e.target); }
+      });
+    }, { threshold: 0.25, rootMargin: "0px 0px -8% 0px" });
+    lines.forEach(function (l) { seen.observe(l); });
+  }
+  if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var queued = false;
+  function paint() {
+    queued = false;
+    var r = track.getBoundingClientRect();
+    var span = r.height - innerHeight;
+    var p = span > 0 ? Math.min(1, Math.max(0, -r.top / (span * 0.8))) : 1;
+    var e = p * p * (3 - 2 * p);
+    move.style.setProperty("--from", (1 - e * 0.68).toFixed(3));
+    move.style.setProperty("--to", (0.32 + e * 0.68).toFixed(3));
+    move.style.setProperty("--shift", (e * 0.06).toFixed(3) + "em");
+  }
+  function ask() { if (!queued) { queued = true; requestAnimationFrame(paint); } }
+  addEventListener("scroll", ask, { passive: true });
+  addEventListener("resize", ask);
+  paint();
+})();
