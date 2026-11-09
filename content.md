@@ -43,7 +43,7 @@ Last restart: August 2026
 -->
 
 ## Industrial Engineering
-Place: Karlsruhe · Herford · Changzhou · Berlin
+Place: KIT · Changzhou · Berlin
 Photo: [Photo: Industrial Engineering]
 
 - BSc Industrial Engineering at KIT.
@@ -61,7 +61,7 @@ Photo: [Photo: Prediction]
 - Wrote business proposals for MES cloud solutions.
   
 ## Systems Engineering
-Place: Delft
+Place: TU Delft
 Photo: [Photo: Public Policy]
 
 - MSc Engineering & Policy Analysis at TU Delft.
@@ -71,7 +71,7 @@ Photo: [Photo: Public Policy]
 - Taught data science, machine learning and computer simulation in Python.
  
 ## Economics
-Place: Rotterdam
+Place: Erasmus Uni Rotterdam
 Photo: [Photo: Economics]
 
 - MSc Economics & Business at Erasmus University Rotterdam.
@@ -94,12 +94,13 @@ Photo: [Photo: Flood Insurance]
 - Built an agent-based model to simulate client behavior against price shifts and climate shocks within the US National Flood Insurance Program.
 
 ## AI Policy
-Place: Opendata.ch · Zürich
+Place: Opendata.ch · Prova.ai
 Photo: [Photo: AI Policy]
 
 - Operational lead of the fifth funding round of the Prototype Fund.
 - Connected software teams with grant funding and AI-compliance researchers, to launch under EU and Swiss AI law.
 - 110 teams vetted, 5 selected, CHF 1M in funding managed.
+- Co-Founded [Prova.ai](https://tryprova.ai), grew to $5.6M valuation
 
 
 # Now
