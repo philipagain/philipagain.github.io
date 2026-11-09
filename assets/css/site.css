@@ -397,9 +397,11 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
   font-family: var(--display); font-weight: 500; font-size: clamp(38px, 6vw, 104px);
   line-height: 1.04; letter-spacing: -0.035em; max-width: 17ch; text-wrap: balance;
 }
-.tl-proof { font-family: var(--text); font-size: clamp(19px, 1.6vw, 24px); line-height: 1.4; color: var(--t-soft); max-width: 40ch; }
+.tl-proof { font-family: var(--text); font-size: clamp(17px, 1.3vw, 20px); line-height: 1.4; color: var(--t-soft); max-width: 40ch; }
+/* The middle line sits on the right. */
+.target-lines li:nth-child(2) { justify-items: end; text-align: right; }
 
-.target-lines.reveal li { opacity: 0; transform: translate3d(0, 20px, 0); transition: opacity 700ms var(--out), transform 900ms var(--out); }
+.target-lines.reveal li { opacity: 0; transform: translate3d(0, clamp(64px, 9vw, 120px), 0); transition: opacity 700ms var(--out), transform 1100ms var(--out); }
 .target-lines.reveal li.is-in { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {

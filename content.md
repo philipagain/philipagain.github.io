@@ -117,13 +117,13 @@ To: Action
 
 ... in my work, be it a sales pipeline, operating system, portfolio, ...
 
-## Business development and GTM Engineering
-
-I want to drive the sales or the systems underneath.
-
 ## AI-native workflows and companies
 
 A new era of business is here. Let's learn from the fastest and the best.
+
+## Business development and GTM Engineering
+
+I want to drive the sales or the systems underneath.
 
 
 # Things I build
