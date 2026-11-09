@@ -109,7 +109,7 @@ Photo: [Photo: AI Policy]
   The dark section after "So far". "{version}" fills in the current version by itself.
   One "##" per line under the statement, with its short supporting line below it.
 -->
-Heading: What's next for Philip_v{version}?
+Heading: What's next for Philip v{version}?
 From: Research
 To: Action
 
