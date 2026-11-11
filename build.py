@@ -5,6 +5,7 @@ Run it with: python3 build.py
 The GitHub Action in .github/workflows/build.yml runs it on every push.
 """
 
+import hashlib
 import html
 import re
 import sys
@@ -231,6 +232,25 @@ def build_rolls(entries):
     return "\n".join(out)
 
 
+def build_share(steps, version):
+    """Write share.html, the link-preview image's page, and return the image's public URL.
+
+    The list shows every "So far" step, newest first, numbered v1, v2, ... like the versions.
+    The URL carries a fingerprint of the page, so LinkedIn and others fetch the new image
+    whenever a step or the version changes.
+    """
+    rows = []
+    for number, (title, _) in reversed(list(enumerate(steps, start=1))):
+        rows.append(f'        <li><span class="label">{inline(title)}</span><span class="v">v{number}</span></li>')
+    template = (ROOT / "share-template.html").read_text(encoding="utf-8")
+    template = template.split("-->\n", 1)[1]  # drop the note at the top
+    page = template.replace("{{version}}", str(version)).replace("{{past}}", "\n".join(rows))
+    (ROOT / "share.html").write_text(page, encoding="utf-8")
+    domain = (ROOT / "CNAME").read_text(encoding="utf-8").strip() if (ROOT / "CNAME").exists() else "philipagain.com"
+    fingerprint = hashlib.sha1(page.encode("utf-8")).hexdigest()[:10]
+    return f"https://{domain}/assets/img/share.jpg?v={fingerprint}"
+
+
 def main():
     front, sections = parse((ROOT / "content.md").read_text(encoding="utf-8"))
     hero, _, hero_text = parse_block(sections["Hero"][0])
@@ -255,6 +275,7 @@ def main():
         "restarts": str(restarts),
         "last_restart": inline(so_far.get("last restart", "")),
         "version": str(restarts + 1),
+        "share_image": attr(build_share(steps, restarts + 1)),
         "steps": build_steps(steps),
         "next_heading": inline(now.get("heading", "What's next?").replace("{version}", str(restarts + 1))),
         "next_from": inline(now.get("from", "")),

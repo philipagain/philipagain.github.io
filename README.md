@@ -13,7 +13,9 @@ Don't edit `index.html` by hand: the next rebuild overwrites it.
 content.md            all the text: hero, So far, Now, Things I build, About, Get in touch
 template.html         the page layout, with {{placeholders}} for the text
 build.py              turns content.md + template.html into index.html (python3 build.py)
-.github/workflows/    runs build.py on every push that changes the three files above
+share-template.html   layout of the link-preview image shown when someone shares the site
+render_share.py       turns share-template.html into assets/img/share.jpg (needs Playwright)
+.github/workflows/    runs both scripts on every push that changes the files above
 index.html            the generated page (don't edit by hand)
 404.html              page shown for broken links
 favicon.svg           the logo: three overlapping leaves
@@ -39,6 +41,7 @@ Every change pushed to `main` is live within about a minute.
 | Hero photo | save as `assets/img/hero.jpg`, then follow the comment above `<header class="hero">` in `template.html` |
 | Portrait | replace `assets/img/portrait.jpg` |
 | Colours | `assets/css/site.css`, the variables under `:root` (light) and the dark-mode block below |
+| Link-preview image | builds itself: the "Philip v8" badge and the list of past versions come from the `# So far` steps. Change the look or the photo caption in `share-template.html` |
 
 Text edits work directly on github.com: open `content.md`, click the pencil
 icon, edit, and commit. The comment at the top of `content.md` explains its format.
