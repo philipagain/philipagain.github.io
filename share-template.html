@@ -1,0 +1,45 @@
+<!-- Layout of the link-preview image (1200×627) that LinkedIn, WhatsApp, Slack etc. show for philipagain.com.
+     build.py fills {{version}} and {{past}} from content.md and writes share.html;
+     render_share.py photographs share.html into assets/img/share.jpg. Edit the look here, the words in content.md. -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Philip again... share image</title>
+<style>
+  html, body { margin: 0; padding: 0; }
+  body { width: 1200px; height: 627px; overflow: hidden; }
+  .card {
+    position: relative; width: 1200px; height: 627px; box-sizing: border-box; overflow: hidden;
+    font-family: "Helvetica Neue", Helvetica, "Liberation Sans", Arial, sans-serif; color: #3E2A24;
+    background: #E6E6E5 url("assets/img/photos/towers-1800.webp") center bottom / cover no-repeat;
+  }
+  /* Lightens the sky so the words stay readable over the towers. */
+  .scrim { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(236,235,232,0.95) 0%, rgba(236,235,232,0.88) 42%, rgba(236,235,232,0.6) 60%, rgba(236,235,232,0) 82%); }
+  .top { position: relative; box-sizing: border-box; padding: 44px 56px; display: flex; justify-content: space-between; align-items: flex-start; gap: 40px; }
+  h1 { margin: -14px 0 0 -6px; font-size: 144px; font-weight: 500; line-height: 1; letter-spacing: -0.05em; white-space: nowrap; }
+  .side { display: flex; flex-direction: column; align-items: flex-end; gap: 22px; flex-shrink: 0; }
+  .chip { font-size: 20px; font-weight: 700; letter-spacing: 0.1em; color: #F5F0E8; background: #3E2A24; padding: 11px 20px; border-radius: 999px; }
+  .past { margin: 0; padding: 0 20px 0 0; list-style: none; display: flex; flex-direction: column; gap: 7px; }
+  .past li { display: flex; justify-content: flex-end; align-items: baseline; gap: 12px; font-size: 16px; line-height: 1.25; }
+  .past .label { font-weight: 500; }
+  .past .v { width: 22px; text-align: right; font-size: 13px; font-weight: 600; letter-spacing: 0.04em; color: #7A665D; }
+  .caption { position: absolute; left: 56px; bottom: 32px; font-size: 13px; font-weight: 500; letter-spacing: 0.02em; background: rgba(236,235,232,0.88); padding: 6px 12px; border-radius: 999px; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="scrim"></div>
+  <div class="top">
+    <h1>Philip again...</h1>
+    <div class="side">
+      <div class="chip">PHILIP v{{version}}</div>
+      <ul class="past">
+{{past}}
+      </ul>
+    </div>
+  </div>
+  <div class="caption">Photo: TU Delft Campus Wijnhaven, Den Haag, NL</div>
+</div>
+</body>
+</html>

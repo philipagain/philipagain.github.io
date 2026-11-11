@@ -1,11 +1,11 @@
-# Rebuilds index.html whenever content.md, the template or the build script changes,
-# commits the result to main, and asks GitHub Pages to publish it.
+# Rebuilds index.html and the link-preview image (assets/img/share.jpg) whenever content.md,
+# the templates or the build scripts change, commits the result to main, and asks GitHub Pages to publish it.
 name: Build site from content.md
 
 on:
   push:
     branches: [main]
-    paths: [content.md, template.html, build.py]
+    paths: [content.md, template.html, build.py, share-template.html, render_share.py, assets/img/photos/towers-1800.webp]
   workflow_dispatch:
 
 permissions:
@@ -22,20 +22,28 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Build index.html
+      - name: Build index.html and share.html
         run: python3 build.py
 
-      - name: Commit index.html if it changed
+      - name: Install the browser that renders the share image
+        run: |
+          python3 -m pip install --quiet playwright
+          python3 -m playwright install --with-deps chromium
+
+      - name: Render assets/img/share.jpg
+        run: python3 render_share.py
+
+      - name: Commit index.html and share.jpg if they changed
         id: commit
         run: |
-          if git diff --quiet index.html; then
-            echo "index.html is already up to date."
+          if [ -z "$(git status --porcelain -- index.html assets/img/share.jpg)" ]; then
+            echo "index.html and share.jpg are already up to date."
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add index.html
-            git commit -m "Rebuild index.html from content.md"
+            git add index.html assets/img/share.jpg
+            git commit -m "Rebuild index.html and share image from content.md"
             git push
             echo "changed=true" >> "$GITHUB_OUTPUT"
           fi
