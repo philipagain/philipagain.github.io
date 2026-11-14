@@ -14,12 +14,9 @@ ROOT = Path(__file__).parent
 SECTIONS = ["Hero", "So far", "Now", "Things I build", "Photos", "About", "Get in touch"]
 SETTINGS = {
     "place", "photo", "link", "image", "tags", "button text", "contact note", "link text",
-    "heading", "note", "from", "to", "kind", "who", "last restart",
+    "heading", "note", "from", "to", "kind", "who", "last restart", "photo caption",
 }
 SETTING = re.compile(r"^([A-Za-z ]+):\s+(.*)$")
-# The three logo colours, used in turn for the small leaf markers.
-LEAVES = ["leaf-1", "leaf-2", "leaf-3"]
-LEAF_SVG = '<svg class="leaf-mark {cls}" viewBox="-60 -110 120 220" aria-hidden="true"><path d="M 0 -100 A 110 110 0 0 1 0 100 A 110 110 0 0 1 0 -100 Z"/></svg>'
 
 
 def fail(message):
@@ -117,7 +114,8 @@ def build_steps(entries):
     out = []
     for i, (title, lines) in enumerate(entries):
         settings, bullets, paragraphs = parse_block(lines)
-        leaf = LEAF_SVG.format(cls=LEAVES[i % 3])
+        # Each start is a version of Philip: the first row is v1.
+        marker = f'<span class="row-version" aria-hidden="true">v{i + 1}</span>'
         place = f'<span class="row-place">{inline(settings["place"])}</span>' if "place" in settings else ""
         body = []
         if bullets:
@@ -129,7 +127,7 @@ def build_steps(entries):
         note = note_html(settings.get("note"), "            ")
         out.append(f'          <li class="row" data-start>\n'
                    f'            <details>\n'
-                   f'              <summary class="row-line">{leaf}<span class="row-title">{inline(title)}</span>{place}<span class="row-toggle" aria-hidden="true"></span></summary>\n'
+                   f'              <summary class="row-line">{marker}<span class="row-title">{inline(title)}</span>{place}<span class="row-toggle" aria-hidden="true"></span></summary>\n'
                    + "\n".join(body) + "\n"
                    f'            </details>\n'
                    + (note + "\n" if note else "") +
@@ -252,6 +250,7 @@ def main():
         "button_text": inline(hero.get("button text", "Get in touch")),
         "contact_note": inline(hero.get("contact note", "")),
         "hero_link": inline(hero.get("link text", "See what I'm building")),
+        "hero_caption": inline(hero.get("photo caption", "")),
         "restarts": str(restarts),
         "last_restart": inline(so_far.get("last restart", "")),
         "version": str(restarts + 1),

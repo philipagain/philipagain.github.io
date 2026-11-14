@@ -238,7 +238,7 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   function paint() {
     queued = false;
     var r = track.getBoundingClientRect();
-    var span = r.height - innerHeight;
+    var span = r.height - track.firstElementChild.offsetHeight; // how far the statement stays pinned
     var p = span > 0 ? Math.min(1, Math.max(0, -r.top / (span * 0.8))) : 1;
     var e = p * p * (3 - 2 * p);
     move.style.setProperty("--from", (1 - e * 0.68).toFixed(3));
@@ -314,6 +314,7 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if (!track || calm) return;
   var shot = track.querySelector(".hero-shot");
   var parts = track.querySelectorAll(".hero-sky, .hero-sand");
+  var caption = track.querySelector(".hero-caption");
   document.documentElement.classList.add("towers");
   var queued = false, drop = 0;
   function measure() {
@@ -338,6 +339,8 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       el.style.transform = p > 0 ? "translate3d(0," + (-p * 70).toFixed(1) + "px,0)" : "";
       el.style.pointerEvents = fade < 0.2 ? "none" : "";
     });
+    // The photo caption comes in once the text has cleared and the towers fill the page.
+    if (caption) caption.style.opacity = Math.min(1, Math.max(0, (p - 0.35) / 0.3)).toFixed(3);
   }
   function ask() { if (!queued) { queued = true; requestAnimationFrame(paint); } }
   window.addEventListener("scroll", ask, { passive: true });

@@ -28,6 +28,7 @@ Here we go again... New challenge, new context, new industry, new flatmates. Alr
 <!-- The button opens an email to the address at the top of this file. -->
 Button text: Get in touch
 Link text: See what I'm building
+Photo caption: Photo: TU Delft Campus Wijnhaven, Den Haag, NL
 Contact note: Hiring, building something, or starting again yourself? Write to me.
 
 
@@ -109,21 +110,21 @@ Photo: [Photo: AI Policy]
   The dark section after "So far". "{version}" fills in the current version by itself.
   One "##" per line under the statement, with its short supporting line below it.
 -->
-Heading: What's next for Philip v{version}?
+Heading: What's next
 From: Research
 To: Action
 
 ## Ownership
 
-... in my work, be it a sales pipeline, operating system, portfolio, ...
+In decisions and results.
 
-## AI-native workflows and companies
+## AI-Native Workflows
 
 A new era of business is here. Let's learn from the fastest and the best.
 
-## Business development and GTM Engineering
+## GTM Systems
 
-I want to drive the sales or the systems underneath.
+I want to drive sales and the systems underneath.
 
 
 # Things I build
