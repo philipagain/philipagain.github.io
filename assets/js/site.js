@@ -3,43 +3,127 @@
 
 var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-// Logo: every click turns it a third, so it lands on the same shape with the colours
-// one place further round. Three turns make a full circle, and it says so. Every 9 to
-// 14 seconds the leaves drift apart and gather in again; a click restarts that wait,
-// and nothing runs while the tab is hidden.
+// Logo: the three dots of "Philip again..." balance on a line. The line itself is passive and
+// tips toward whatever is heavier; the dots roll to keep it level, each with its own share of
+// the work and its own short pause, so they look like they are working it out together.
+// The cursor weighs on the line where it hovers. On load and on every click one dot (any of the
+// three, either way) jumps over the others; the line tips, and they roll back into balance in a
+// new order. Measured in dot diameters: the line is 7 long, the dots 1 across.
 (function () {
   var btn = document.querySelector(".logo-btn");
   if (!btn) return;
   var svg = btn.querySelector(".logo");
-  var spin = svg.querySelector(".spin");
-  var note = document.querySelector(".full-circle");
-  var turns = 0, timer, noteTimer;
+  var beam = svg.querySelector(".beam");
+  var HALF = 3.5, R = 0.5, MAXT = 0.22, REST = 1.5, REACH = HALF - R - 0.6, PRESS = 1.0;
+  var dots = Array.prototype.map.call(svg.querySelectorAll(".dot"), function (el, i) {
+    return { el: el, s: (i - 1) * REST, v: 0, spin: 0, k: [28, 34, 24][i], y: 0, air: null, share: 1, lag: 0, grip: 1 };
+  });
+  var t = 0, w = 0, press = 0, clock = 0, job = 0, memory = [[0, 0]];
 
-  function schedule() {
-    clearTimeout(timer);
-    if (calm) return;
-    timer = setTimeout(function () {
-      if (!document.hidden) {
-        svg.classList.remove("regather");
-        void svg.getBoundingClientRect();
-        svg.classList.add("regather");
-      }
-      schedule();
-    }, 9000 + Math.random() * 5000);
+  function draw() {
+    beam.setAttribute("transform", "rotate(" + (t * 180 / Math.PI).toFixed(2) + ")");
+    dots.forEach(function (d) { d.el.setAttribute("transform", "translate(" + d.s.toFixed(3) + "," + (d.y - R).toFixed(3) + ")"); });
+  }
+  if (calm) { draw(); return; }
+
+  function regrip(lo, span) {
+    var g = dots.map(function () { return lo + Math.random() * span; }), m = (g[0] + g[1] + g[2]) / 3;
+    dots.forEach(function (d, i) { d.grip = g[i] / m; });
   }
 
-  btn.addEventListener("click", function () {
-    turns += 1;
-    spin.style.transform = "rotate(" + turns * 120 + "deg)";
-    if (note && turns % 3 === 0) {
-      note.textContent = "Full circle. Again?";
-      note.classList.add("is-on");
-      clearTimeout(noteTimer);
-      noteTimer = setTimeout(function () { note.classList.remove("is-on"); }, 2600);
+  function trick() {
+    if (dots.some(function (d) { return d.air; })) return;
+    var ground = dots.slice().sort(function (a, b) { return a.s - b.s; });
+    var moves = [];
+    ground.forEach(function (d, i) { if (i < 2) moves.push([d, 1]); if (i > 0) moves.push([d, -1]); });
+    var pick = moves[Math.floor(Math.random() * moves.length)], lead = pick[0], dir = pick[1];
+    var far = dir > 0 ? ground[2].s : ground[0].s;
+    var land = dir > 0 ? Math.min(REACH, far + REST * 0.95) : Math.max(-REACH, far - REST * 0.95);
+    var over = Math.abs(land - lead.s) / REST;
+    lead.air = { t0: clock, dur: 0.42 + over * 0.1, from: lead.s, to: land, h: 1.0 + over * 0.45, dir: dir };
+    lead.v = 0;
+    regrip(0.7, 0.6);
+    wake();
+  }
+
+  function step(dt) {
+    clock += dt;
+    dots.forEach(function (d) {
+      if (!d.air) return;
+      var u = Math.min(1, (clock - d.air.t0) / d.air.dur);
+      var e = u < .5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2;
+      d.s = d.air.from + (d.air.to - d.air.from) * e;
+      d.y = -d.air.h * Math.sin(Math.PI * u);
+      if (u >= 1) { d.y = 0; d.v = 0.8 * d.air.dir; d.air = null; }
+    });
+    var ground = dots.filter(function (d) { return !d.air; });
+    // The line: tips toward the heavier side (the dots, plus the cursor where it presses).
+    var load = ground.reduce(function (sum, d) { return sum + d.s; }, 0);
+    w += (1.6 * (load + PRESS * press * HALF) - 1.0 * t - 2.4 * w) * dt;
+    t += w * dt;
+    if (t > MAXT) { t = MAXT; w = Math.min(0, w); }
+    if (t < -MAXT) { t = -MAXT; w = Math.max(0, w); }
+    // The dots: a plan (counter the cursor) that reaches each after its own pause and in its
+    // own share, and a reflex (catch the tilt) that is instant. Far out they squeeze together.
+    var plan = -PRESS * press * HALF / 3, reflex = -2.2 * t - 0.5 * w, centre = plan + reflex;
+    var spacing = Math.max(1.04, Math.min(REST, REACH - Math.abs(centre)));
+    var room = REACH - spacing;
+    centre = Math.max(-room, Math.min(room, centre));
+    plan = Math.max(-room, Math.min(room, plan));
+    var order = ground.slice().sort(function (a, b) { return a.s - b.s; });
+    var mid = (order.length - 1) / 2, shift = plan * 3 / order.length, catchUp = (centre - plan) * 3 / order.length;
+    if (Math.abs(shift - job) > 0.3) {
+      job = shift;
+      var share = dots.map(function () { return 0.45 + Math.random() * 1.3; }), m = (share[0] + share[1] + share[2]) / 3;
+      var lags = [0, 0.12 + Math.random() * 0.08, 0.26 + Math.random() * 0.14].sort(function () { return Math.random() - 0.5; });
+      dots.forEach(function (d, i) { d.share = share[i] / m; d.lag = lags[i]; });
+      regrip(0.75, 0.5);
     }
-    schedule();
+    memory.push([clock, shift]);
+    while (memory.length > 2 && memory[1][0] < clock - 0.6) memory.shift();
+    function heard(lag) { for (var k = memory.length - 1; k >= 0; k--) if (memory[k][0] <= clock - lag) return memory[k][1]; return memory[0][1]; }
+    order.forEach(function (d, i) {
+      var target = heard(d.lag) * d.share + catchUp * d.grip + (i - mid) * spacing;
+      d.v += (d.k * (target - d.s) - 2 * Math.sqrt(d.k) * 0.72 * d.v + 2 * Math.sin(t)) * dt;
+      d.v = Math.max(-3, Math.min(3, d.v));
+      d.s += d.v * dt;
+    });
+    for (var pass = 0; pass < 2; pass++) {
+      order.sort(function (a, b) { return a.s - b.s; });
+      for (var i = 0; i < order.length - 1; i++) {
+        var a = order[i], b = order[i + 1], gap = b.s - a.s - 2 * R;
+        if (gap < 0) { a.s += gap / 2; b.s -= gap / 2; var va = a.v; a.v = Math.min(a.v, b.v); b.v = Math.max(va, b.v); }
+      }
+      var lim = HALF - R - 0.35;
+      order.forEach(function (d) { if (d.s > lim) { d.s = lim; d.v = Math.min(0, d.v); } if (d.s < -lim) { d.s = -lim; d.v = Math.max(0, d.v); } });
+    }
+  }
+
+  // Runs only while something is moving; sleeps once everything is level and still.
+  var running = false, prev = 0;
+  function still() {
+    return Math.abs(t) < 0.002 && Math.abs(w) < 0.01 && !press && dots.every(function (d) { return !d.air && Math.abs(d.v) < 0.01; });
+  }
+  function frame(now) {
+    var dt = Math.min(0.05, (now - prev) / 1000); prev = now;
+    for (var i = 0; i < 4; i++) step(dt / 4);
+    draw();
+    if (still() || document.hidden) { running = false; return; }
+    requestAnimationFrame(frame);
+  }
+  function wake() { if (running) return; running = true; prev = performance.now(); requestAnimationFrame(frame); }
+
+  btn.addEventListener("pointermove", function (e) {
+    if (e.pointerType !== "mouse") return;
+    var r = svg.getBoundingClientRect();
+    press = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
+    wake();
   });
-  schedule();
+  btn.addEventListener("pointerleave", function () { press = 0; wake(); });
+  btn.addEventListener("click", trick);
+  document.addEventListener("visibilitychange", function () { if (!document.hidden) wake(); });
+  draw();
+  setTimeout(trick, 900);
 })();
 
 // "again...": clicking runs a band of "again..." out of "Philip", or stops it.

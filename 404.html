@@ -5,37 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Not found · Philip again.</title>
   <meta name="robots" content="noindex">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="icon" href="/favicon-32.png?v=2" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-  <link rel="stylesheet" href="/assets/css/site.css?v=202611031045b">
+  <link rel="icon" href="/favicon.svg?v=3" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png?v=3" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=3">
+  <link rel="stylesheet" href="/assets/css/site.css?v=202611151700">
   <style>
     .lost { min-height: 100svh; display: flex; align-items: center; background: var(--sky-pale); }
     .lost .frame { display: flex; flex-direction: column; align-items: flex-start; gap: 32px; }
     .lost h1 { font-size: clamp(64px, 11vw, 180px); font-weight: 500; line-height: .9; letter-spacing: -0.045em; color: var(--heading); }
     .lost p { font-size: var(--t-statement); font-family: var(--display); }
-    .logo-lost { width: 120px; height: 104px; }
-    /* The leaves arrive scattered; "Try again" gathers them before going home. */
-    .logo-lost .leaf { animation: none; transition: transform 1s cubic-bezier(.34, 1.56, .64, 1), opacity 600ms ease; }
-    .logo-lost.scattered .petal:nth-child(1) .leaf { transform: translate(-60px, -260px) rotate(-30deg); }
-    .logo-lost.scattered .petal:nth-child(2) .leaf { transform: translate(40px, -340px) rotate(50deg); }
-    .logo-lost.scattered .petal:nth-child(3) .leaf { transform: translate(-20px, -200px) rotate(15deg); }
+    .lost-mark { width: 220px; height: 103px; overflow: visible; color: var(--ink); }
+    .lost-mark rect { fill: currentColor; }
+    .lost-mark .d1 { fill: var(--logo-1); } .lost-mark .d2 { fill: var(--logo-2); } .lost-mark .d3 { fill: var(--logo-3); }
+    /* The dots have rolled off the tipped line; "Try again" puts them back and levels it. */
+    .lost-mark .beam { transform-box: fill-box; transform-origin: center; }
+    .lost-mark .beam, .lost-mark .dot { transition: transform 1s cubic-bezier(.34, 1.56, .64, 1); }
+    .lost-mark .dot:nth-of-type(2) { transition-delay: .08s; } .lost-mark .dot:nth-of-type(3) { transition-delay: .16s; }
+    .lost-mark.scattered .beam { transform: rotate(-12deg); }
+    .lost-mark.scattered .d1 { transform: translate(-4.6px, 2.2px); }
+    .lost-mark.scattered .d2 { transform: translate(4.4px, 2.4px); }
+    .lost-mark.scattered .d3 { transform: translate(5.6px, 2.3px); }
   </style>
 </head>
 <body>
 <main class="lost">
   <div class="frame">
-    <svg class="logo logo-lost scattered" viewBox="-262 -300 524 454" aria-hidden="true"><g class="spin"><g class="petal"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(120)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g><g class="petal" transform="rotate(240)"><path class="leaf" d="M 0 -295 A 238.24 238.24 0 0 1 0 100 A 238.24 238.24 0 0 1 0 -295 Z"/></g></g></svg>
+    <svg class="lost-mark scattered" viewBox="-6 -2.6 12 5.6" aria-hidden="true"><g class="beam"><rect x="-3.5" y="0" width="7" height=".22" rx=".11"/></g><circle class="dot d1" r=".5" cx="-1.5" cy="-.5"/><circle class="dot d2" r=".5" cx="0" cy="-.5"/><circle class="dot d3" r=".5" cx="1.5" cy="-.5"/></svg>
     <h1>Lost, again.</h1>
     <p>This page doesn't exist (anymore). Let's start over.</p>
     <a class="btn" href="/" data-try>Try again</a>
   </div>
 </main>
 <script>
-  // Gather the leaves first, then go home. Without script, the button is a plain link.
+  // Put the dots back on the line first, then go home. Without script, the button is a plain link.
   (function () {
     var link = document.querySelector("[data-try]");
-    var logo = document.querySelector(".logo-lost");
+    var logo = document.querySelector(".lost-mark");
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) { logo.classList.remove("scattered"); return; }
     link.addEventListener("click", function (event) {
       event.preventDefault();

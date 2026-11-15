@@ -71,7 +71,7 @@
     --on-sky: #E1D9D0;
     --logo-1: #D4958A;
     --logo-2: #8FB3C9;
-    --logo-3: #E1D9D0;
+    --logo-3: #B5A99F;
     --focus: #8FB3C9;
 
     /* The hero at blue hour: deep navy sky, a faint warm glow low down. */
@@ -134,30 +134,18 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 .ulink:hover { text-decoration-thickness: 6px; text-underline-offset: 3px; }
 
 
-/* ---------- The logo ---------- */
-.logo-btn { display: inline-flex; margin: -8px; padding: 8px; border: 0; border-radius: 14px; background: none; cursor: pointer; }
-.logo { width: 46px; height: 40px; overflow: visible; isolation: isolate; }
-.logo .spin, .logo .petal, .logo .leaf { transform-box: view-box; transform-origin: 0 0; }
-.logo .spin { transition: transform 750ms var(--spring); }
-.logo .leaf { animation: logo-gather 1.4s var(--spring) both; }
-.logo .petal:nth-child(1) .leaf { fill: var(--logo-1); }
-.logo .petal:nth-child(2) .leaf { fill: var(--logo-2); animation-delay: .12s; }
-.logo .petal:nth-child(3) .leaf { fill: var(--logo-3); animation-delay: .24s; }
-.logo.regather .leaf { animation-name: logo-regather; animation-duration: 2.2s; animation-timing-function: linear; }
-@keyframes logo-gather { from { transform: translateY(-150px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-@keyframes logo-regather {
-  0% { transform: translateY(0); opacity: 1; animation-timing-function: ease-in; } /* the exit before a slow arrival: taste-skill-ignore */
-  35% { transform: translateY(-150px); opacity: 0; animation-timing-function: cubic-bezier(.34, 1.56, .64, 1); }
-  100% { transform: translateY(0); opacity: 1; }
-}
-@media (prefers-color-scheme: dark) { .logo .leaf { fill-opacity: .8; mix-blend-mode: screen; } }
+/* ---------- The logo: three dots balancing on a line (site.js moves them) ---------- */
+.logo-btn { display: inline-flex; margin: -8px; padding: 8px; border: 0; border-radius: 14px; background: none; color: inherit; cursor: pointer; }
+.logo { width: 68px; height: 28px; overflow: visible; }
+.logo rect, .logo-ghost rect { fill: currentColor; }
+.logo .d1, .logo-ghost .d1 { fill: var(--logo-1); }
+.logo .d2, .logo-ghost .d2 { fill: var(--logo-2); }
+.logo .d3, .logo-ghost .d3 { fill: var(--logo-3); }
 
 /* ---------- Top bar ---------- */
 .bar { position: fixed; inset: 0 0 auto; z-index: 10; transition: background-color 300ms ease; }
 .bar.is-scrolled { background: var(--bg); }
 .bar-inner { display: flex; align-items: center; gap: 16px; height: 64px; }
-.full-circle { font: 500 26px/1 var(--hand); color: var(--ink); opacity: 0; transform: translateX(-6px); transition: opacity 300ms ease, transform 400ms var(--out); white-space: nowrap; }
-.full-circle.is-on { opacity: 1; transform: none; }
 .bar-nav { margin-left: auto; display: flex; align-items: center; gap: 28px; font-size: var(--t-small); font-weight: 500; }
 .bar-nav a { text-decoration: none; }
 .bar-nav a:not(.bar-action):hover { text-decoration: underline; text-decoration-color: var(--accent-2); text-decoration-thickness: 3px; text-underline-offset: 6px; }
@@ -332,7 +320,7 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 
 /* ---------- Get in touch: the end of the page, on pale sky ---------- */
 .contact { position: relative; overflow: hidden; padding: 72px 0 0; }
-.logo-ghost { position: absolute; right: -6vw; top: 50%; width: 52vw; height: auto; transform: translateY(-46%); opacity: .22; pointer-events: none; }
+.logo-ghost { position: absolute; right: -4vw; top: 50%; width: 48vw; height: auto; transform: translateY(-50%); color: var(--ink); opacity: .14; pointer-events: none; }
 .contact-top { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 32px; }
 .contact-links { display: flex; flex-direction: column; gap: 10px; }
 .legal { position: relative; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 72px; padding-bottom: 28px; font-size: var(--t-small); }
