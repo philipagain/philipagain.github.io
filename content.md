@@ -60,7 +60,7 @@ Photo: [Photo: Prediction]
 - Ran a build-vs-buy cost-benefit analysis against off-the-shelf OCR solutions.
 - Wrote business proposals for MES cloud solutions.
   
-## Systems Engineering
+## Systemic Risk
 Place: TU Delft
 Photo: [Photo: Public Policy]
 
@@ -79,14 +79,14 @@ Photo: [Photo: Economics]
 - Causal identification.
 - Climate adaptation and development economics.
  
-## Private Equity
+## Strategic Investments
 Place: Rothschild & Co
 Photo: [Photo: Private Equity]
 
 - Due diligence on private market funds.
 - Strategic asset allocation research across public, private and real assets.
 
-## Flood Insurance
+## Climate Insurance
 Place: ETH Zürich
 Photo: [Photo: Flood Insurance]
 
@@ -119,11 +119,11 @@ In decisions and results.
 
 ## AI-Native Workflows
 
-A new era of business is here. Let's learn from the fastest and the best.
+A new era of business is here. Let's learn from the best.
 
-## GTM Systems
+## AI Diffusion 
 
-I want to drive sales and the systems underneath.
+I want to move with the adoption frontier into business and society.
 
 
 # Things I build
