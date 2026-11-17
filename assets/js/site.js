@@ -6,9 +6,10 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 // Logo: the three dots of "Philip again..." balance on a line. The line itself is passive and
 // tips toward whatever is heavier; the dots roll to keep it level, each with its own share of
 // the work and its own short pause, so they look like they are working it out together.
-// The cursor weighs on the line where it hovers. On load and on every click one dot (any of the
-// three, either way) jumps over the others; the line tips, and they roll back into balance in a
-// new order. Measured in dot diameters: the line is 7 long, the dots 1 across.
+// The cursor weighs on the line where it hovers. On load, on every click, and on their own every
+// 10 to 25 seconds, one dot (any of the three, either way) jumps over the others; the line tips,
+// and they roll back into balance in a new order. They don't jump on their own while the cursor
+// is on the logo or the tab is hidden. Measured in dot diameters: the line is 7 long, the dots 1 across.
 (function () {
   var btn = document.querySelector(".logo-btn");
   if (!btn) return;
@@ -113,17 +114,29 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   }
   function wake() { if (running) return; running = true; prev = performance.now(); requestAnimationFrame(frame); }
 
+  // Now and then a dot jumps on its own; a click restarts the wait.
+  var hovering = false, idle = 0;
+  function later() {
+    clearTimeout(idle);
+    idle = setTimeout(function () {
+      if (!document.hidden && !hovering) trick();
+      later();
+    }, 10000 + Math.random() * 15000);
+  }
+
   btn.addEventListener("pointermove", function (e) {
     if (e.pointerType !== "mouse") return;
+    hovering = true;
     var r = svg.getBoundingClientRect();
     press = Math.max(-1, Math.min(1, (e.clientX - (r.left + r.width / 2)) / (r.width / 2)));
     wake();
   });
-  btn.addEventListener("pointerleave", function () { press = 0; wake(); });
-  btn.addEventListener("click", trick);
+  btn.addEventListener("pointerleave", function () { press = 0; hovering = false; wake(); });
+  btn.addEventListener("click", function () { trick(); later(); });
   document.addEventListener("visibilitychange", function () { if (!document.hidden) wake(); });
   draw();
   setTimeout(trick, 900);
+  later();
 })();
 
 // Top bar: transparent over the photo, plaster once the page scrolls past it.
