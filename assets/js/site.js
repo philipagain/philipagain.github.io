@@ -126,15 +126,6 @@ var calm = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   setTimeout(trick, 900);
 })();
 
-// "again...": clicking runs a band of "again..." out of "Philip", or stops it.
-(function () {
-  var btn = document.querySelector(".again-btn");
-  if (!btn) return;
-  btn.addEventListener("click", function () {
-    btn.setAttribute("aria-pressed", btn.getAttribute("aria-pressed") === "true" ? "false" : "true");
-  });
-})();
-
 // Top bar: transparent over the photo, plaster once the page scrolls past it.
 (function () {
   var bar = document.querySelector("[data-bar]");

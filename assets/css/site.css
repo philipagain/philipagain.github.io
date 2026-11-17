@@ -173,17 +173,10 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
   font-size: var(--t-monument); font-weight: 500; line-height: .9; letter-spacing: -0.045em; color: var(--hero-ink);
 }
 .hero h1 .name { flex: 0 0 auto; }
-/* "again..." — click it and a band of "again..." runs out of "Philip", and the view changes */
 .again-lane { position: relative; flex: 1 1 4.2em; min-width: 4.2em; clip-path: inset(-0.3em -100vw -0.4em 0); }
-.again-btn { position: relative; display: block; width: 100%; margin: 0; padding: 0; border: 0; background: none; font: inherit; line-height: inherit; color: inherit; letter-spacing: inherit; text-align: left; cursor: pointer; }
 .again-word { white-space: nowrap; }
-.again-static { display: inline-block; transform-origin: left bottom; transition: transform 460ms var(--spring); }
-.again-btn:hover .again-static { transform: rotate(-3deg) translateY(-6px); }
-.again-btn:active .again-static { transform: scale(.96); transition-duration: 90ms; }
-.again-flow { display: none; position: absolute; left: 0; top: 0; }
-.again-btn[aria-pressed="true"] .again-static { visibility: hidden; }
-.again-btn[aria-pressed="true"] .again-flow { display: block; transform: translateX(-100%); animation: again-flow 10s linear infinite; }
-@keyframes again-flow { from { transform: translateX(-100%); } to { transform: translateX(100vw); } }
+/* "again..." */
+.again-static { display: inline-block; }
 .hero-sand { position: relative; display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: flex-start; gap: 24px 48px; padding-bottom: clamp(32px, 6vh, 64px); }
 .hero .lead { margin-top: clamp(28px, 5vh, 56px); max-width: 46em; font-size: clamp(20px, 1.65vw, 25px); line-height: 1.45; text-wrap: pretty; font-family: var(--display); font-weight: 330; }
 .hero-act { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 28px; }
@@ -366,8 +359,6 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
   *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   .js [data-enter] > *, .js .note-card[data-enter], .js .now-photo[data-enter] { opacity: 1; transform: none; }
   .js .note-card[data-enter] { transform: rotate(-1deg); }
-  .again-btn[aria-pressed="true"] .again-static { visibility: visible; }
-  .again-btn[aria-pressed="true"] .again-flow { display: none; }
 }
 
 /* ===== WHAT'S NEXT: one dark, quiet moment on the page ===== */
