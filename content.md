@@ -181,6 +181,23 @@ Heading: Meanwhile, on film
   The first two rolls show straight away; older ones open with "Show older rolls".
 -->
 
+## Zurich, Istanbul and Lake Como, 2026
+- roll4-01
+- roll4-08
+- roll4-02
+- roll4-10
+- roll4-12
+- roll4-11
+- roll4-06
+- roll4-04
+- roll4-13
+- roll4-05
+- roll4-14
+- roll4-07
+- roll4-09
+- roll4-03
+
+
 ## Portugal and Seville, summer 2026
 - roll1-6405
 - roll1-6410
