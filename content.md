@@ -131,6 +131,7 @@ I want to move with the adoption frontier into business and society.
 <!--
   One "##" entry per tool. The first tag is shown filled in.
   Image: a square picture in assets/img/
+  Chat label (optional): the small label on the sample chat, "exported chat" if left out
 -->
 
 ## Chat Export for Signal
@@ -155,6 +156,18 @@ Tags: Claude plugin, Open source
 - Mum: Bring the dog
 
 Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.
+
+## Network Sync
+Link: https://github.com/phillippmueller/network-sync
+Image: assets/img/network-sync.png
+Chat label: asking Claude
+Tags: Claude plugin, Open source
+
+- Me: Who should I get back to this week?
+- Claude: Anna. Last talked 5 weeks ago, about her move to Berlin
+- Me: Right, I promised her an intro
+
+Ask Claude to keep a personal CRM in Notion up to date from your chats, email and calendar, and tell you whom to reach out to next and about what.
 
 
 # Photos

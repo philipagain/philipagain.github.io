@@ -14,7 +14,7 @@ ROOT = Path(__file__).parent
 SECTIONS = ["Hero", "So far", "Now", "Things I build", "Photos", "About", "Get in touch"]
 SETTINGS = {
     "place", "photo", "link", "image", "tags", "button text", "contact note", "link text",
-    "heading", "note", "from", "to", "kind", "who", "last restart", "photo caption",
+    "heading", "note", "from", "to", "kind", "who", "last restart", "photo caption", "chat label",
 }
 SETTING = re.compile(r"^([A-Za-z ]+):\s+(.*)$")
 
@@ -144,7 +144,7 @@ def build_next(entries):
     return "\n".join(out)
 
 
-def chat_html(title, bullets):
+def chat_html(title, bullets, label="exported chat"):
     """A small piece of the exported chat page: the tool's real output, drawn in HTML."""
     rows = []
     for i, b in enumerate(bullets):
@@ -153,7 +153,7 @@ def chat_html(title, bullets):
         rows.append(f'              <div class="bubble {side}"><span class="who">{inline(who)}</span>{inline(said)}</div>')
     return (
         f'          <div class="chat" data-ui aria-hidden="true">\n'
-        f'            <div class="chat-head"><span class="chat-title">{inline(title)}</span><span class="chat-meta">exported chat</span></div>\n'
+        f'            <div class="chat-head"><span class="chat-title">{inline(title)}</span><span class="chat-meta">{inline(label)}</span></div>\n'
         f'            <div class="chat-body">\n' + "\n".join(rows) + "\n"
         f'            </div>\n'
         f'          </div>'
@@ -171,7 +171,7 @@ def build_tools(entries):
         tag_html = "".join(f'<span class="tag">{inline(t)}</span>' for t in tags)
         out.append(
             f'        <article class="tool">\n'
-            f'{chat_html(title, bullets)}\n'
+            f'{chat_html(title, bullets, settings.get("chat label", "exported chat"))}\n'
             f'          <div class="tool-text">\n'
             f'            <div class="tool-name"><img src="{attr(settings["image"])}" alt="" width="48" height="48" loading="lazy">'
             f'<h3><a href="{attr(settings["link"])}">{inline(title)}</a></h3></div>\n'
