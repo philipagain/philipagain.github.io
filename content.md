@@ -101,7 +101,7 @@ Photo: [Photo: AI Policy]
 - Operational lead of the fifth funding round of the Prototype Fund.
 - Connected software teams with grant funding and AI-compliance researchers, to launch under EU and Swiss AI law.
 - 110 teams vetted, 5 selected, CHF 1M in funding managed.
-- Co-Founded [Prova.ai](https://tryprova.ai), grew to $5.6M valuation
+- Co-Founded Prova.ai, grew to $5.6M valuation
 
 
 # Now
