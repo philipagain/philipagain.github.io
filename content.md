@@ -169,6 +169,18 @@ Tags: Claude plugin, Open source
 
 Ask Claude to keep a personal CRM in Notion up to date from your chats, email and calendar, and tell you whom to reach out to next and about what.
 
+## Audio Summary
+Link: https://github.com/phillippmueller/audio-summary
+Image: assets/img/audio-summary.png
+Chat label: asking Claude
+Tags: Claude plugin, Open source
+
+- Me: Here's the call from this morning. What did we agree?
+- Claude: Draft by Friday, she sends the numbers (12:40)
+- Me: Perfect, no need to listen again
+
+Ask Claude to turn an interview, call or voice note into one document: a short summary with next steps, and a clean transcript with speakers and timestamps. Transcribed on your own computer.
+
 
 # Photos
 
