@@ -144,39 +144,23 @@ def build_next(entries):
     return "\n".join(out)
 
 
-def chat_html(title, bullets, label="exported chat"):
-    """A small piece of the exported chat page: the tool's real output, drawn in HTML."""
-    rows = []
-    for i, b in enumerate(bullets):
-        who, _, said = b.partition(": ")
-        side = "me" if who.strip().lower() == "me" else "them"
-        rows.append(f'              <div class="bubble {side}"><span class="who">{inline(who)}</span>{inline(said)}</div>')
-    return (
-        f'          <div class="chat" data-ui aria-hidden="true">\n'
-        f'            <div class="chat-head"><span class="chat-title">{inline(title)}</span><span class="chat-meta">{inline(label)}</span></div>\n'
-        f'            <div class="chat-body">\n' + "\n".join(rows) + "\n"
-        f'            </div>\n'
-        f'          </div>'
-    )
-
-
 def build_tools(entries):
     out = []
-    for title, lines in entries:
+    for i, (title, lines) in zip(range(len(entries), 0, -1), entries):
         settings, bullets, paragraphs = parse_block(lines)
         for key in ("link", "image"):
             if key not in settings:
                 fail(f'tool "{title}" needs a "{key.capitalize()}:" line')
-        tags = [t.strip() for t in settings.get("tags", "").split(",") if t.strip()]
-        tag_html = "".join(f'<span class="tag">{inline(t)}</span>' for t in tags)
         out.append(
             f'        <article class="tool">\n'
-            f'{chat_html(title, bullets, settings.get("chat label", "exported chat"))}\n'
-            f'          <div class="tool-text">\n'
-            f'            <div class="tool-name"><img src="{attr(settings["image"])}" alt="" width="48" height="48" loading="lazy">'
-            f'<h3><a href="{attr(settings["link"])}">{inline(title)}</a></h3></div>\n'
+            f'          <span class="tool-num" aria-hidden="true">{i:02d}</span>\n'
+            f'          <img class="tool-icon" src="{attr(settings["image"])}" alt="" width="72" height="72" loading="lazy">\n'
+            f'          <div class="tool-main">\n'
+            f'            <h3><a class="tool-link" href="{attr(settings["link"])}">{inline(title)}</a></h3>\n'
             f'            <p>{inline(" ".join(paragraphs))}</p>\n'
-            f'            <div class="tags">{tag_html}</div>\n'
+            f'          </div>\n'
+            f'          <div class="tool-side">\n'
+            f'            <span class="tool-go" aria-hidden="true"><span class="tool-go-label">GitHub </span><span class="tool-arrow">\u2197</span></span>\n'
             f'          </div>\n'
             f'        </article>'
         )

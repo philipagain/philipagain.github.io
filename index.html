@@ -180,7 +180,7 @@
   </section>
   </div>
 
-  <!-- ===== THINGS I BUILD: the tools side by side, each with a piece of its exported chat ===== -->
+  <!-- ===== THINGS I BUILD: one row per tool, newest first ===== -->
   <section class="section build" id="build" aria-labelledby="build-title">
     <div class="frame build-head" data-enter>
       <h2 id="build-title">Things I build</h2>
@@ -189,63 +189,47 @@
     <div class="frame">
       <div class="tools" data-enter>
         <article class="tool">
-          <div class="chat" data-ui aria-hidden="true">
-            <div class="chat-head"><span class="chat-title">Chat Export for Signal</span><span class="chat-meta">exported chat</span></div>
-            <div class="chat-body">
-              <div class="bubble them"><span class="who">Lena</span>Did you keep the photos from the trip?</div>
-              <div class="bubble me"><span class="who">Me</span>Exporting the whole chat right now</div>
-              <div class="bubble them"><span class="who">Lena</span>Wait, you can do that?</div>
-            </div>
-          </div>
-          <div class="tool-text">
-            <div class="tool-name"><img src="assets/img/chat-export-for-signal.png" alt="" width="48" height="48" loading="lazy"><h3><a href="https://github.com/phillippmueller/chat-export-for-signal">Chat Export for Signal</a></h3></div>
-            <p>Ask Claude to export your Signal Desktop chats as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
-            <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
-          </div>
-        </article>
-        <article class="tool">
-          <div class="chat" data-ui aria-hidden="true">
-            <div class="chat-head"><span class="chat-title">Chat Export for WhatsApp</span><span class="chat-meta">exported chat</span></div>
-            <div class="chat-body">
-              <div class="bubble them"><span class="who">Mum</span>Are you coming home for Christmas?</div>
-              <div class="bubble me"><span class="who">Me</span>Yes. Again.</div>
-              <div class="bubble them"><span class="who">Mum</span>Bring the dog</div>
-            </div>
-          </div>
-          <div class="tool-text">
-            <div class="tool-name"><img src="assets/img/chat-export-for-whatsapp.png" alt="" width="48" height="48" loading="lazy"><h3><a href="https://github.com/phillippmueller/chat-export-for-whatsapp">Chat Export for WhatsApp</a></h3></div>
-            <p>Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
-            <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
-          </div>
-        </article>
-        <article class="tool">
-          <div class="chat" data-ui aria-hidden="true">
-            <div class="chat-head"><span class="chat-title">Network Sync</span><span class="chat-meta">asking Claude</span></div>
-            <div class="chat-body">
-              <div class="bubble me"><span class="who">Me</span>Who should I get back to this week?</div>
-              <div class="bubble them"><span class="who">Claude</span>Anna. Last talked 5 weeks ago, about her move to Berlin</div>
-              <div class="bubble me"><span class="who">Me</span>Right, I promised her an intro</div>
-            </div>
-          </div>
-          <div class="tool-text">
-            <div class="tool-name"><img src="assets/img/network-sync.png" alt="" width="48" height="48" loading="lazy"><h3><a href="https://github.com/phillippmueller/network-sync">Network Sync</a></h3></div>
-            <p>Ask Claude to keep a personal CRM in Notion up to date from your chats, email and calendar, and tell you whom to reach out to next and about what.</p>
-            <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
-          </div>
-        </article>
-        <article class="tool">
-          <div class="chat" data-ui aria-hidden="true">
-            <div class="chat-head"><span class="chat-title">Audio Summary</span><span class="chat-meta">asking Claude</span></div>
-            <div class="chat-body">
-              <div class="bubble me"><span class="who">Me</span>Here's the call from this morning. What did we agree?</div>
-              <div class="bubble them"><span class="who">Claude</span>Draft by Friday, she sends the numbers (12:40)</div>
-              <div class="bubble me"><span class="who">Me</span>Perfect, no need to listen again</div>
-            </div>
-          </div>
-          <div class="tool-text">
-            <div class="tool-name"><img src="assets/img/audio-summary.png" alt="" width="48" height="48" loading="lazy"><h3><a href="https://github.com/phillippmueller/audio-summary">Audio Summary</a></h3></div>
+          <span class="tool-num" aria-hidden="true">04</span>
+          <img class="tool-icon" src="assets/img/audio-summary.png" alt="" width="72" height="72" loading="lazy">
+          <div class="tool-main">
+            <h3><a class="tool-link" href="https://github.com/phillippmueller/audio-summary">Audio Summary</a></h3>
             <p>Ask Claude to turn an interview, call or voice note into one document: a short summary with next steps, and a clean transcript with speakers and timestamps. Transcribed on your own computer.</p>
-            <div class="tags"><span class="tag">Claude plugin</span><span class="tag">Open source</span></div>
+          </div>
+          <div class="tool-side">
+            <span class="tool-go" aria-hidden="true"><span class="tool-go-label">GitHub </span><span class="tool-arrow">↗</span></span>
+          </div>
+        </article>
+        <article class="tool">
+          <span class="tool-num" aria-hidden="true">03</span>
+          <img class="tool-icon" src="assets/img/network-sync.png" alt="" width="72" height="72" loading="lazy">
+          <div class="tool-main">
+            <h3><a class="tool-link" href="https://github.com/phillippmueller/network-sync">Network Sync</a></h3>
+            <p>Ask Claude to keep a personal CRM in Notion up to date from your chats, email and calendar, and tell you whom to reach out to next and about what.</p>
+          </div>
+          <div class="tool-side">
+            <span class="tool-go" aria-hidden="true"><span class="tool-go-label">GitHub </span><span class="tool-arrow">↗</span></span>
+          </div>
+        </article>
+        <article class="tool">
+          <span class="tool-num" aria-hidden="true">02</span>
+          <img class="tool-icon" src="assets/img/chat-export-for-whatsapp.png" alt="" width="72" height="72" loading="lazy">
+          <div class="tool-main">
+            <h3><a class="tool-link" href="https://github.com/phillippmueller/chat-export-for-whatsapp">Chat Export for WhatsApp</a></h3>
+            <p>Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
+          </div>
+          <div class="tool-side">
+            <span class="tool-go" aria-hidden="true"><span class="tool-go-label">GitHub </span><span class="tool-arrow">↗</span></span>
+          </div>
+        </article>
+        <article class="tool">
+          <span class="tool-num" aria-hidden="true">01</span>
+          <img class="tool-icon" src="assets/img/chat-export-for-signal.png" alt="" width="72" height="72" loading="lazy">
+          <div class="tool-main">
+            <h3><a class="tool-link" href="https://github.com/phillippmueller/chat-export-for-signal">Chat Export for Signal</a></h3>
+            <p>Ask Claude to export your Signal Desktop chats as readable pages and clean, machine-readable data. Everything stays on your computer.</p>
+          </div>
+          <div class="tool-side">
+            <span class="tool-go" aria-hidden="true"><span class="tool-go-label">GitHub </span><span class="tool-arrow">↗</span></span>
           </div>
         </article>
       </div>

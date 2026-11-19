@@ -129,57 +129,33 @@ I want to move with the adoption frontier into business and society.
 # Things I build
 
 <!--
-  One "##" entry per tool. The first tag is shown filled in.
+  One "##" entry per tool, newest first.
   Image: a square picture in assets/img/
-  Chat label (optional): the small label on the sample chat, "exported chat" if left out
 -->
-
-## Chat Export for Signal
-Link: https://github.com/phillippmueller/chat-export-for-signal
-Image: assets/img/chat-export-for-signal.png
-Tags: Claude plugin, Open source
-
-<!-- Bullets are the sample chat shown next to the tool: "Name: message". "Me" sits on the right. -->
-- Lena: Did you keep the photos from the trip?
-- Me: Exporting the whole chat right now
-- Lena: Wait, you can do that?
-
-Ask Claude to export your Signal Desktop chats as readable pages and clean, machine-readable data. Everything stays on your computer.
-
-## Chat Export for WhatsApp
-Link: https://github.com/phillippmueller/chat-export-for-whatsapp
-Image: assets/img/chat-export-for-whatsapp.png
-Tags: Claude plugin, Open source
-
-- Mum: Are you coming home for Christmas?
-- Me: Yes. Again.
-- Mum: Bring the dog
-
-Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.
-
-## Network Sync
-Link: https://github.com/phillippmueller/network-sync
-Image: assets/img/network-sync.png
-Chat label: asking Claude
-Tags: Claude plugin, Open source
-
-- Me: Who should I get back to this week?
-- Claude: Anna. Last talked 5 weeks ago, about her move to Berlin
-- Me: Right, I promised her an intro
-
-Ask Claude to keep a personal CRM in Notion up to date from your chats, email and calendar, and tell you whom to reach out to next and about what.
 
 ## Audio Summary
 Link: https://github.com/phillippmueller/audio-summary
 Image: assets/img/audio-summary.png
-Chat label: asking Claude
-Tags: Claude plugin, Open source
-
-- Me: Here's the call from this morning. What did we agree?
-- Claude: Draft by Friday, she sends the numbers (12:40)
-- Me: Perfect, no need to listen again
 
 Ask Claude to turn an interview, call or voice note into one document: a short summary with next steps, and a clean transcript with speakers and timestamps. Transcribed on your own computer.
+
+## Network Sync
+Link: https://github.com/phillippmueller/network-sync
+Image: assets/img/network-sync.png
+
+Ask Claude to keep a personal CRM in Notion up to date from your chats, email and calendar, and tell you whom to reach out to next and about what.
+
+## Chat Export for WhatsApp
+Link: https://github.com/phillippmueller/chat-export-for-whatsapp
+Image: assets/img/chat-export-for-whatsapp.png
+
+Ask Claude to export your WhatsApp chats, straight from the Mac app or from a phone export, as readable pages and clean, machine-readable data. Everything stays on your computer.
+
+## Chat Export for Signal
+Link: https://github.com/phillippmueller/chat-export-for-signal
+Image: assets/img/chat-export-for-signal.png
+
+Ask Claude to export your Signal Desktop chats as readable pages and clean, machine-readable data. Everything stays on your computer.
 
 
 # Photos

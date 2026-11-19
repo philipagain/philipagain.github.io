@@ -235,30 +235,32 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 
 /* ---------- Things I build ---------- */
 .build-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 40px; }
-/* One row: the tools side by side. */
-.tools { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; }
-.tool { display: flex; flex-direction: column; gap: 20px; padding: 20px 20px 24px; border-radius: var(--radius); background: var(--sky-pale); }
-.tool:nth-child(2) { background: var(--stone); }
-.tool-text { display: flex; flex-direction: column; gap: 12px; padding: 0 4px; }
-.tool-name { display: flex; align-items: center; gap: 14px; }
-.tool-name img { width: 48px; height: 48px; border-radius: 12px; flex: 0 0 auto; }
-.tool-text h3 { font-size: clamp(22px, 1.9vw, 28px); font-weight: 500; line-height: 1.1; letter-spacing: -0.015em; }
-.tool-text h3 a { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: 6px; transition: text-decoration-color 250ms ease; }
-.tool-text h3 a:hover { text-decoration-color: var(--accent-2); }
-.tool-text p { font-size: 17px; line-height: 1.5; }
-.tags { display: flex; flex-wrap: wrap; gap: 8px; }
-.tag { padding: 5px 12px; font-size: 14px; font-weight: 500; border-radius: 999px; background: var(--bg); }
-/* The exported chat page, drawn small: the tool's real output. */
-.chat { background: var(--surface); border-radius: 16px; overflow: hidden; transition: transform 500ms var(--spring); }
-.tool:hover .chat { transform: translateY(-4px) rotate(-.6deg); }
-.chat-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 16px; background: var(--bg); font-size: 15px; }
-.chat-title { font-weight: 600; }
-.chat-meta { font-size: 13px; color: var(--muted); }
-.chat-body { display: flex; flex-direction: column; gap: 8px; padding: 14px 16px 16px; }
-.bubble { max-width: 82%; padding: 7px 12px 8px; border-radius: 14px 14px 14px 4px; background: var(--sky-pale); font-size: 15px; line-height: 1.35; }
-.tool:nth-child(1) .bubble:not(.me) { background: var(--stone); }
-.bubble.me { align-self: flex-end; border-radius: 14px 14px 4px 14px; background: var(--sky); color: var(--on-sky); }
-.bubble .who { display: block; font-size: 12px; font-weight: 600; opacity: .7; }
+/* A catalogue: one row per tool, hairlines between. */
+.tools { display: flex; flex-direction: column; border-top: 1px solid var(--rule); --rule: color-mix(in srgb, var(--ink) 16%, transparent); }
+.tool { position: relative; display: grid; grid-template-columns: 2.2em 72px minmax(0, 1fr) auto; gap: 28px; align-items: start; padding: 32px 20px; border-bottom: 1px solid var(--rule); transition: background-color 300ms ease; }
+.tool:hover { background: var(--stone); }
+.tool-num { padding-top: 6px; font-size: var(--t-small); font-variant-numeric: tabular-nums; color: var(--muted); }
+.tool-icon { width: 72px; height: 72px; border-radius: 18px; transition: transform 500ms var(--spring); }
+.tool:hover .tool-icon { transform: rotate(-4deg) scale(1.04); }
+.tool-main { display: flex; flex-direction: column; gap: 10px; max-width: 62ch; }
+.tool-main h3 { font-size: clamp(24px, 2.2vw, 32px); font-weight: 500; line-height: 1.1; letter-spacing: -0.015em; }
+.tool-link { text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: 6px; transition: text-decoration-color 250ms ease; }
+.tool:hover .tool-link { text-decoration-color: var(--accent-2); }
+.tool-link::after { content: ""; position: absolute; inset: 0; }
+.tool-link:focus-visible { outline: none; }
+.tool:has(.tool-link:focus-visible) { outline: 2px solid var(--focus); outline-offset: -2px; }
+.tool-main p { font-size: 17px; line-height: 1.5; }
+.tool-side { display: flex; flex-direction: column; align-items: flex-end; gap: 18px; padding-top: 4px; }
+.tool-go { font-size: var(--t-small); font-weight: 500; white-space: nowrap; }
+.tool-arrow { display: inline-block; transition: transform 300ms var(--out); }
+.tool:hover .tool-arrow { transform: translate(3px, -3px); }
+@media (max-width: 760px) {
+  .tool { grid-template-columns: 56px minmax(0, 1fr); gap: 16px 18px; padding: 24px 4px; }
+  .tool:hover { background: none; }
+  .tool-num { display: none; }
+  .tool-icon { width: 56px; height: 56px; border-radius: 14px; }
+  .tool-side { display: none; }
+}
 
 /* ---------- Photos: one strip per roll of film ---------- */
 .photos-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 16px 48px; margin-bottom: 48px; }
@@ -325,7 +327,6 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
 
 /* ---------- Phone ---------- */
 @media (min-width: 861px) and (max-width: 1100px) {
-  .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 860px) {
   .bar-nav a:not(.bar-action) { display: none; }
@@ -336,7 +337,6 @@ h2 { font-size: var(--t-h2); font-weight: 500; line-height: 1; letter-spacing: -
   .row-toggle { order: 2; }
   .row-place { display: none; order: 3; flex-basis: 100%; max-width: none; margin-left: 30px; text-align: left; }
   .row details[open] .row-place { display: block; }
-  .tools { grid-template-columns: 1fr; }
   .facts { order: 2; padding-top: 40px; flex-direction: row; flex-wrap: wrap; gap: 20px 32px; }
   .portrait { width: 4em; height: 4em; }
 }
